@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Routes of infinity</title>
+		<meta name="keywords" content=""/>
+		<meta name ="description" content=""/>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" type="text/css" href="css/mapStyle.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div id="login" class="card">
+			<span>Acceso</span>
+			<form>
+				<div class="input-field">
+					<input name="usuario" id="usuario" type="text"/>
+					<label for="usuario">Usuario</label>
+				</div>
+				<div class="input-field">
+					<input name="pass" id="pass" type="password"/>
+					<label for="pass">Contraseña</label>
+				</div>
+				<input class="btn cyan" type="submit" value="Iniciar sesión"/>
+			</form>
+			<a href="">Crear cuenta</a>
+		</div>
+		<header>
+			<img id="logoShow" class="responsive-img" src="images/logo1.png"/>
+		</header>
+
+		<!-- MAIN -->
+		<div class="container">
+			<div class="row card">			
+				<div class="col s12 m9 l10 paddingCol">
+					<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+		    		<div id="map"></div>
+	    		</div>
+	    		<div class="col s12 m3 l2 paddingCol">
+	    			<div class="row">
+	    				<div class="col s8 m12 l12">
+	    					<form>
+						    	<div class="input-field">
+						        	<input id="etiqueta" type="text">
+						            <label for="etiqueta">Nombre ubicación</label>				          
+						        </div>
+							</form>
+	    				</div>
+	    				<div class="col s4 m12 l12">
+	    					<a id="guardar" class="waves-effect waves-light btn cyan">Guardar</a>
+							<a id="undo" class="waves-effect waves-light btn cyan">Deshacer</a>
+	    				</div>
+	    				<div id="chipParaTodos" class="col s12 m12 l12 center-align paddingCol">
+				    	
+				    	</div>
+				    	<div class="col s12 m12 l12">
+				    		<a id="terminar" class="waves-effect waves-light btn cyan">Terminar</a>
+				    	</div>
+	    			</div>	    			
+	    		</div>
+	    	</div>	    	
+		</div>		
+		
+		<!-- FOOTER -->
+		<footer class="page-footer grey darken-2">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">¿Te gustaría participar?</h5>
+						<p class="grey-text text-lighten-4">Routes of infinity es una plataforma destinada a las personas que les gusta viajar y descubrir lugares nuevos.</br></br><a href="">Registrarse</a> es muy simple, sólo necesitas un nombre de usuario y una contraseña. A partir de ahí ya podrás crear rutas de todo tipo; rutas de vinos o cañas, rutas gastronómicas, lugares que visitar en una ciudad determinada...
+						</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Mapa web</h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="#!">Principal</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Buscar rutas</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Crear ruta</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Registrarse</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2016 Routes of infinity
+					<a class="grey-text text-lighten-4 right" href="#!">powered by rcancelo</a>
+				</div>
+			</div>
+		</footer>
+		<script type="text/javascript" src="js/map.js"></script>
+    	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4MUSp0pmtINyDHJKTIMkWJMen94eaYM&libraries=places&callback=initAutocomplete"
+         async defer></script>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+	</body>
+</html>

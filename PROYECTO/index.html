@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Routes of infinity</title>
+		<meta name="keywords" content=""/>
+		<meta name ="description" content=""/>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div id="login" class="card">
+			<span>Acceso</span>
+			<form>
+				<div class="input-field">
+					<input name="usuario" id="usuario" type="text"/>
+					<label for="usuario">Usuario</label>
+				</div>
+				<div class="input-field">
+					<input name="pass" id="pass" type="password"/>
+					<label for="pass">Contraseña</label>
+				</div>
+				<input class="btn cyan" type="submit" value="Iniciar sesión"/>
+			</form>
+			<a href="">Crear cuenta</a>
+		</div>
+		<header>
+			<div id="main" class="card">
+				<div id="logo">
+					<img class="responsive-img" src="images/logo1.png">
+				</div>
+				<p id="info">0 rutas creadas.</p>
+				<p id="sugerir">Sugerir ruta según mi ubicación.</p>
+				</form>		
+				<nav>
+					<div class="nav-wrapper cyan">
+						<form action="show.html" method="get">
+							<div class="input-field">
+								<input id="search" type="search" name="b" placeholder="EMPIEZA AQUÍ..." required>
+								<label for="search"><i class="material-icons">search</i></label>
+								<i class="material-icons">close</i>
+							</div>
+						</form>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<footer id="copyR">
+			<p>Routes of infinity - <a href="rcancelo.com">rcancelo</a></p>
+		</footer>
+
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
