@@ -16,6 +16,11 @@ body {
 	padding-top: 20px;
 }
 
+nav {
+	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16);
+	margin-bottom: 20px;
+}
+
 #info {
 	text-align: center;
 	margin: 50px;
@@ -49,7 +54,6 @@ body {
 	text-align: center;
 	overflow: hidden;
 	z-index: 9;
-	/*background-color: #00BCD4;*/
 
 	transition: 0.5s;
 }
@@ -57,7 +61,6 @@ body {
 #login:hover {
 	height: 250px;
 	width: 200px;
-	/*background-color: #FFF;*/
 	
 	transition: 0.5s;	
 }
@@ -99,12 +102,23 @@ body {
 	box-shadow: 0 1px 0 0 #00BCD4;
 }
 
+nav .nav-wrapper form, nav .nav-wrapper form .input-field{
+	height: 100%;
+}
+
 #copyR {
 	margin-top: 200px;
 	text-align: center;
 	color: white;
 }
+/*----- LOGIN -----*/
+#mainLogin {	
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
 
+/*----- CREATE -----*/
 .paddingCol {
 	padding: 0.75rem !important;
 }
@@ -124,6 +138,14 @@ body {
 	margin-bottom: 5px;
 }
 
+.sinMargen {
+	margin: 0px !important;
+}
+
+#button-collapse {
+	color: black;
+}
+
 
 /*----- SHOW -----*/
 
@@ -140,25 +162,30 @@ header {
 	width: 90%;
 }
 
-/*
-#filtro {
-	float: right;
-	width: 30%;
-}
-
-#rutas {
-	float: left;
-	width: 68%;
-}
-
-.ruta {
-	height: 350px;
-}
-
-.imagen {
-	border: 1px solid;
-	height: 200px;
-}
-
-.texto {
-}*/
+/* label color */
+   .input-field label {
+     color: grau;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: balck;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid cyan;
+     box-shadow: 0 1px 0 0 cyan;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid green;
+     box-shadow: 0 1px 0 0 green;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid red;
+     box-shadow: 0 1px 0 0 red;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: cyan;
+   }

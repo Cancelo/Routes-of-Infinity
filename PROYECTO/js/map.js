@@ -7,7 +7,8 @@ var coordenadasEvento;
 // Configuración inicial del mapa
 var myOptions = {
 	zoom: 2,
-	center: {lat: 34, lng: 6}
+	center: {lat: 34, lng: 6},
+	clickableIcons: false
 };
 
 // Función inicial
@@ -28,7 +29,7 @@ function initAutocomplete() {
 		document.getElementById("etiqueta").focus();
 		// Llama a la función establecerMarker y le pasa como parámetro latitud y longitud del evento click
 		establecerMarker(event.latLng);
-	});
+	});	
 
 	// Crea el searchbox de la API de places y lo linkea al input pac-input
 	var input = document.getElementById('pac-input');
@@ -70,7 +71,7 @@ function initAutocomplete() {
 				bounds.extend(place.geometry.location);
 			}
 		});
-		map.fitBounds(bounds);
+		map.fitBounds(bounds);		
 	});
 
 	// Utilizado para que el mapa aparezca centrado en su posición de origen independientemente de la resolución
@@ -132,6 +133,12 @@ function guardar() {
 		div.innerHTML = "<div class='chip'>"+document.getElementById("etiqueta").value+"</div>";
 		div.setAttribute('class', 'chip');
 		document.getElementById("chipParaTodos").appendChild(div);
+
+		var div = document.createElement('div');
+		div.innerHTML = "<div class='chip'>"+document.getElementById("etiqueta").value+"</div>";
+		div.setAttribute('class', 'chip');
+		document.getElementById("chipsModal").appendChild(div);
+
 		// Borra el input etiqueta
 		document.getElementById("etiqueta").value = "";
 	}
@@ -189,5 +196,6 @@ function terminar() {
 			toBBDD += markersArrayGuardado[indice].title+markersArrayGuardado[indice].position+":";		
 		}
 		console.log(toBBDD);
+		document.getElementById("ubicacionesRuta").value = toBBDD;
 	}	
 }
