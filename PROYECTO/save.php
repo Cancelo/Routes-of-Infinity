@@ -3,11 +3,13 @@
 	$nombreRuta = $_POST['nombreRuta'];
 	$ciudadRuta = $_POST['ciudadRuta'];
 	$descripcionRuta = $_POST['descripcionRuta'];
-	$tipoRuta = $_POST['tipoRuta'];
+	$tipoRuta = $_POST['tipo'];	
 	$ubicacionesRuta = $_POST['ubicacionesRuta'];
 	$user = "Ruben";
 	date_default_timezone_set('Europe/Madrid');
-	$fecha= date('Y-m-d H:i:s');	
+	$fecha= date('Y-m-d H:i:s');
+
+	echo "Tipo ".$tipoRuta;
 
 	include_once("mysql.inc.php");
 

@@ -9,30 +9,115 @@
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
-	<body>
-		<header>
-			<img id="logoShow" class="responsive-img" src="images/logo1.png"/>
-		</header>
-
-		<div id="mainLogin" class="card">
-			<div class="row">
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col l1 m1 s1"><a href="#test1">Test 1</a></li>
-						<li class="tab col l1 m1 s1"><a href="#test2">Test 2</a></li>
-					</ul>
+	<body id="discoverBg">
+		<nav class="white">
+			<div class="nav-wrapper">
+				<a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
+				<ul id="navegacion" class="right hide-on-med-and-down">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="discover.php">Descubrir</a></li>
+					<li><a href="create.html">Crear</a></li>
+					<li><a href="profile.html">Mi perfil</a></li>
+					<li><a href="login.html">Log in</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="discover.php">Descubrir</a></li>
+					<li><a href="create.html">Crear</a></li>
+					<li><a href="profile.html">Mi perfil</a></li>
+					<li><a href="login.html">Log in</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container loginContainer">
+			<div class="row card">
+				<div class="col s12 m6 l6">
+					<div class="row login">
+						<h5>Acceder</h5>
+						<div class="col s12">
+							<div class="input-field">
+					          <input id="usuario" type="text" class="validate">
+					          <label for="usuario">Usuario</label>
+					        </div>
+						</div>
+						<div class="col s12">
+							<div class="input-field">
+					          <input id="pass" type="text" class="validate">
+					          <label for="pass">Contraseña</label>
+					        </div>
+						</div>
+						<div class="col s12">
+							<button class="btn waves-effect waves-light cyan" type="submit" name="action">Acceder
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l6">
+					<div class="row login">
+						<h5>Registrarse</h5>
+						<div class="col s12">
+							<div class="input-field">
+					          <input id="usuario" type="text" class="validate">
+					          <label for="usuario">Usuario</label>
+					        </div>
+						</div>
+						<div class="col s12">
+							<div class="input-field">
+					          <input id="passR" type="text" class="validate">
+					          <label for="passR">Contraseña</label>
+					        </div>
+						</div>
+						<div class="col s12">
+							<div class="input-field">
+					          <input id="repass" type="text" class="validate">
+					          <label for="repass">Repita la contraseña</label>
+					        </div>
+						</div>
+						<div class="col s12">
+							<button class="btn waves-effect waves-light cyan" type="submit" name="action">Registrarse
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>					
 				</div>
 			</div>
-			<div id="test1" class="col s12">Test 1</div>
-    		<div id="test2" class="col s12">Test 2</div>
-    	</div>
-
-		<footer id="copyR">
-			<p>Routes of infinity - <a href="rcancelo.com">rcancelo</a></p>
+		</div>
+		<footer class="page-footer grey darken-2">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">¿Te gustaría participar?</h5>
+						<p class="grey-text text-lighten-4">Routes of infinity es una plataforma destinada a las personas que les gusta viajar y descubrir lugares nuevos.</br></br><a href="">Registrarse</a> es muy simple, sólo necesitas un nombre de usuario y una contraseña. A partir de ahí ya podrás crear rutas de todo tipo; rutas de vinos o cañas, rutas gastronómicas, lugares que visitar en una ciudad determinada...
+						</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Mapa web</h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="#!">Principal</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Buscar rutas</a></li>
+							<li><a class="grey-text text-lighten-3" href="create.html">Crear ruta</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Registrarse</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2016 Routes of infinity
+					<a class="grey-text text-lighten-4 right" href="#!">powered by rcancelo</a>
+				</div>
+			</div>
 		</footer>
-
-	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script>
+			$(document).ready(function () {
+				$(".button-collapse").sideNav();
+			});
+		</script>
 	</body>
 </html>

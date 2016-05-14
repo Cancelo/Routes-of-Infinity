@@ -11,14 +11,15 @@ body {
 	margin-top: 100px;
 }
 
-#logo {
+#logoPrincipal {
 	text-align: center;
 	padding-top: 20px;
 }
 
-nav {
-	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.16);
-	margin-bottom: 20px;
+#logo {
+	width: 150px;
+	padding-top: 5px;
+	padding-left: 10px;
 }
 
 #info {
@@ -41,6 +42,18 @@ nav {
 	color: black;
 
 	transition: 0.5s;
+}
+
+#continuar {
+	text-align: center;
+	color: #212121;
+	cursor: pointer;
+	margin-top: 0px;
+	font-size: 12px;
+}
+
+#navegacion li a {
+	color: black;
 }
 
 #login {
@@ -146,20 +159,35 @@ nav .nav-wrapper form, nav .nav-wrapper form .input-field{
 	color: black;
 }
 
-
-/*----- SHOW -----*/
-
-header {
-	text-align: center;
-}
-
-#logoShow {
-	padding: 10px;
-	width: 200px;
-}
+/*----- DISCOVER -----*/
 
 .container {
 	width: 90%;
+}
+
+#filtro {
+	margin: 10px 0px 3px 0px;
+}
+
+#filtro .col {
+	padding: 0px;
+}
+
+.filtroBuscador {
+	box-shadow: 0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0);
+}
+
+.filtroSelect {
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	text-align: center;
+}
+
+.aplicarFiltro {
+	padding-top: 13px !important;
+	padding-bottom: 13px !important;
+    text-align: center;
+    font-size: 12px;
 }
 
 /* label color */
@@ -172,20 +200,30 @@ header {
    }
    /* label underline focus color */
    .input-field input[type=text]:focus {
-     border-bottom: 1px solid cyan;
-     box-shadow: 0 1px 0 0 cyan;
+     border-bottom: 1px solid #00bcd4;
+     box-shadow: 0 1px 0 0 #00bcd4;
    }
    /* valid color */
    .input-field input[type=text].valid {
-     border-bottom: 1px solid green;
-     box-shadow: 0 1px 0 0 green;
+     border-bottom: 1px solid #a5d6a7;
+     box-shadow: 0 1px 0 0 #a5d6a7;
    }
    /* invalid color */
    .input-field input[type=text].invalid {
-     border-bottom: 1px solid red;
-     box-shadow: 0 1px 0 0 red;
+     border-bottom: 1px solid #ef9a9a;
+     box-shadow: 0 1px 0 0 #ef9a9a;
    }
    /* icon prefix focus color */
    .input-field .prefix.active {
-     color: cyan;
+     color: #00bcd4;
    }
+
+/*----- LOGIN -----*/
+
+.loginContainer {
+	width: 70%;
+}
+
+.login {
+	padding: 20px;
+}

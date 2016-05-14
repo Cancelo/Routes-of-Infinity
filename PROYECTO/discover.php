@@ -9,35 +9,80 @@
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
-	<body>
-		<nav class="transparent">
+	<body id="discoverBg">
+		<nav class="white">
 			<div class="nav-wrapper">
-				<a href="#!" class="brand-logo center"><img id="logoShow" class="responsive-img" src="images/logo1.png"/></a>
-				<a href="#" data-activates="mobile-demo" id="button-collapse"><i class="material-icons">menu</i></a>
-				<ul class="side-nav" id="mobile-demo">
+				<a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
+				<ul id="navegacion" class="right hide-on-med-and-down">
 					<li><a href="index.html">Inicio</a></li>
-					<li><a href="discover.html">Descubrir</a></li>
+					<li><a href="discover.php">Descubrir</a></li>
 					<li><a href="create.html">Crear</a></li>
 					<li><a href="profile.html">Mi perfil</a></li>
-					<li><a href="logout.html">Cerrar sesión</a></li>
+					<li><a href="login.html">Log in</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="discover.php">Descubrir</a></li>
+					<li><a href="create.html">Crear</a></li>
+					<li><a href="profile.html">Mi perfil</a></li>
+					<li><a href="login.html">Log in</a></li>
 				</ul>
 			</div>
 		</nav>
 		<div class="container">
-			<div class="row">
-				<div class="s12 m12 l12 card">
-					aaa
+			<div class="row card" id="filtro">
+				<div class="col s12 m12 l3">
+					<nav class="filtroBuscador">
+						<div class="nav-wrapper cyan">
+						<form action="discover.php" method="get">
+							<div class="input-field">
+								<input id="search" type="search" name="b" placeholder="BUSCAR" required>
+								<label for="search"><i class="material-icons">search</i></label>
+								<i class="material-icons">close</i>
+							</div>							
+						</div>
+					</nav>
 				</div>
-				<?php 
-					if(isset($_GET['b'])){
+				<div class="filtroSelect col s6 m4 l2">
+					<select>
+						<option value="" disabled selected>Orden</option>
+						<option value="1">Ascendente</option>
+						<option value="2">Descendente</option>
+					</select>
+				</div>
+				<div class="filtroSelect col s6 m4 l2">
+					<select>
+						<option value="" disabled selected>Características</option>
+						<option value="1">Valoración</option>
+						<option value="2">Fecha</option>
+						<option value="3">Tamaño de la ruta</option>
+					</select>
+				</div>
+				<div class="filtroSelect col s6 m4 l2">
+					<select>
+						<option value="" disabled selected>Tipo</option>
+						<option value="1">Ocio</option>
+						<option value="2">Cultural</option>
+						<option value="3">Otros</option>
+					</select>
+					</form>
+				</div>
+				<div class="aplicarFiltro col s6 m12 l3">
+					<button class="btn waves-effect waves-light cyan" type="submit" name="action">Aplicar filtro
+						<i class="material-icons right">send</i>
+					</button>
+				</div>				
+			</div>
+			<div class="row">
+				<?php
+					if (isset($_GET['b'])) {
 						include("mostrarRutasBusqueda.php");
-					}
-					else{
+					} else {
 						include("mostrarRutas.php");
-					}			 
-
+					}
 				?>
-				
+
 			</div>
 		</div>
 		<footer class="page-footer grey darken-2">
@@ -72,7 +117,8 @@
 		<script type="text/javascript" src="js/script.js"></script>
 		<script>
 			$(document).ready(function () {
-				$("#button-collapse").sideNav();
+				$(".button-collapse").sideNav();
+				$('select').material_select();
 			});
 		</script>
 	</body>
