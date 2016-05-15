@@ -35,43 +35,46 @@
 				<div class="col s12 m6 l6">
 					<div class="row login">
 						<h5>Acceder</h5>
-						<div class="col s12">
-							<div class="input-field">
-					          <input id="usuario" type="text" class="validate">
-					          <label for="usuario">Usuario</label>
-					        </div>
-						</div>
-						<div class="col s12">
-							<div class="input-field">
-					          <input id="pass" type="text" class="validate">
-					          <label for="pass">Contraseña</label>
-					        </div>
-						</div>
+						<form method="post" action="login.php">
+							<div class="col s12">
+								<div class="input-field">
+						          <input id="user" type="text" name="user" class="validate">
+						          <label for="user">Usuario</label>
+						        </div>
+							</div>
+							<div class="col s12">
+								<div class="input-field">
+						          <input id="pass" type="text" name="pass" class="validate">
+						          <label for="pass">Contraseña</label>
+						        </div>
+							</div>						
 						<div class="col s12">
 							<button class="btn waves-effect waves-light cyan" type="submit" name="action">Acceder
 								<i class="material-icons right">send</i>
 							</button>
+							</form>
 						</div>
 					</div>
 				</div>
 				<div class="col s12 m6 l6">
 					<div class="row login">
 						<h5>Registrarse</h5>
+						<form method="post" action="register.php">
 						<div class="col s12">
 							<div class="input-field">
-					          <input id="usuario" type="text" class="validate">
+					          <input id="usuario" type="text" name="user" class="validate">
 					          <label for="usuario">Usuario</label>
 					        </div>
 						</div>
 						<div class="col s12">
 							<div class="input-field">
-					          <input id="passR" type="text" class="validate">
+					          <input id="passR" type="text" name="pass" class="validate">
 					          <label for="passR">Contraseña</label>
 					        </div>
 						</div>
 						<div class="col s12">
 							<div class="input-field">
-					          <input id="repass" type="text" class="validate">
+					          <input id="repass" type="text" name="repass" class="validate">
 					          <label for="repass">Repita la contraseña</label>
 					        </div>
 						</div>
@@ -79,6 +82,7 @@
 							<button class="btn waves-effect waves-light cyan" type="submit" name="action">Registrarse
 								<i class="material-icons right">send</i>
 							</button>
+						</form>
 						</div>
 					</div>					
 				</div>
