@@ -17,7 +17,7 @@
 
 		mysqli_select_db($c,"routesofinfinity");
 
-		$sql="select * from usuario where usuario='$user' and pass='$pass'";
+		$sql="select * from usuario where nombre='$user' and pass='$pass'";
 
 		$resultado=mysqli_query($c,$sql);
 
@@ -33,8 +33,8 @@
 			else {
 				# Correcto
 				session_start();
-				$_SESSION['usuario']=$registro['usuario'];
-				header("Location:menu.php");
+				$_SESSION['user']=$registro['nombre'];
+				header("Location:discover.php");
 			}
 		}
 		else {

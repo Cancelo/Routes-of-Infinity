@@ -17,16 +17,34 @@
 				<ul id="navegacion" class="right hide-on-med-and-down">
 					<li><a href="index.html">Inicio</a></li>
 					<li><a href="discover.php">Descubrir</a></li>
-					<li><a href="create.html">Crear</a></li>
-					<li><a href="profile.html">Mi perfil</a></li>
-					<li><a href="login.html">Log in</a></li>
+					<li><a href="create.php">Crear</a></li>
+					<?php 
+						session_start();
+
+						if(!isset($_SESSION['user'])) {
+							echo "<li><a href='login.html'>Log in</a></li>";
+						}
+						else{
+							$user=$_SESSION['user'];
+							echo "<li><a href='profile.php'>Menú de $user</a></li>";							
+						}
+					?>					
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
 					<li><a href="index.html">Inicio</a></li>
 					<li><a href="discover.php">Descubrir</a></li>
-					<li><a href="create.html">Crear</a></li>
-					<li><a href="profile.html">Mi perfil</a></li>
-					<li><a href="login.html">Log in</a></li>
+					<li><a href="create.php">Crear</a></li>
+					<?php 
+						session_start();
+
+						if(!isset($_SESSION['user'])) {
+							echo "<li><a href='login.html'>Log in</a></li>";
+						}
+						else{
+							$user=$_SESSION['user'];
+							echo "<li><a href='profile.php'>Menú de $user</a></li>";							
+						}
+					?>	
 				</ul>
 			</div>
 		</nav>
