@@ -1,11 +1,12 @@
 <?php
-
+	session_start();
+	
 	$nombreRuta = $_POST['nombreRuta'];
 	$ciudadRuta = $_POST['ciudadRuta'];
 	$descripcionRuta = $_POST['descripcionRuta'];
 	$tipoRuta = $_POST['tipo'];	
 	$ubicacionesRuta = $_POST['ubicacionesRuta'];
-	$user = "Ruben";
+	$user = $_SESSION['user'];
 	date_default_timezone_set('Europe/Madrid');
 	$fecha= date('Y-m-d H:i:s');
 
@@ -17,7 +18,7 @@
 
 	if($c==null) {
 		#echo "Fallo de conexión";
-		header("Location:create.html?e=0");
+		header("Location:create.php?e=0");
 	}
 	else {
 		mysqli_select_db($c, "routesofinfinity");
@@ -31,11 +32,11 @@
 			$filas=mysqli_affected_rows($c);
 
 			if($filas>0) {
-				header("Location:create.html?e=1");
+				header("Location:create.php?e=1");
 			}
 			else {
 				#echo "No se han realizado cambios";
-				header("Location:create.html?e=0");
+				header("Location:create.php?e=0");
 			}
 		}
 		else {

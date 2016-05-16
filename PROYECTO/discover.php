@@ -10,6 +10,11 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body id="discoverBg">
+		<ul id="dropdownNormal" class="dropdown-content">
+		  <li><a href="profile.html">Menú</a></li>
+		  <li class="divider"></li>
+		  <li><a href="logout.php">Cerrar sesión</a></li>
+		</ul>
 		<nav class="white">
 			<div class="nav-wrapper">
 				<a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
@@ -26,7 +31,7 @@
 						}
 						else{
 							$user=$_SESSION['user'];
-							echo "<li><a href='profile.php'>Menú de $user</a></li>";							
+							echo "<li><a class='dropdown-button' href='#!'' data-activates='dropdownNormal'>$user<i class='material-icons right'>arrow_drop_down</i></a></li>";							
 						}
 					?>					
 				</ul>
@@ -34,15 +39,14 @@
 					<li><a href="index.html">Inicio</a></li>
 					<li><a href="discover.php">Descubrir</a></li>
 					<li><a href="create.php">Crear</a></li>
-					<?php 
-						session_start();
-
+					<?php
 						if(!isset($_SESSION['user'])) {
 							echo "<li><a href='login.html'>Log in</a></li>";
 						}
 						else{
 							$user=$_SESSION['user'];
-							echo "<li><a href='profile.php'>Menú de $user</a></li>";							
+							echo "<li><a href='profile.php'>Menú de $user</a></li>";
+							echo "<li><a href='logout.php'>Cerrar sesión</a></li>";						
 						}
 					?>	
 				</ul>
@@ -95,9 +99,9 @@
 			<div class="row">
 				<?php
 					if (isset($_GET['b'])) {
-						include("mostrarRutasBusqueda.php");
+						include("discoverConsultaBusqueda.php");
 					} else {
-						include("mostrarRutas.php");
+						include("discoverConsulta.php");
 					}
 				?>
 
@@ -135,6 +139,7 @@
 		<script type="text/javascript" src="js/script.js"></script>
 		<script>
 			$(document).ready(function () {
+				$(".dropdown-button").dropdown();
 				$(".button-collapse").sideNav();
 				$('select').material_select();
 			});

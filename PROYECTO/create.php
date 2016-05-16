@@ -1,3 +1,13 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['user'])) {
+		header("Location:login.html");
+	}
+	else {
+		$user=$_SESSION['user'];
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -11,6 +21,12 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
+		<!-- Dropdown Structure -->
+		<ul id="dropdownNormal" class="dropdown-content">
+		  <li><a href="profile.html">Menú</a></li>
+		  <li class="divider"></li>
+		  <li><a href="logout.php">Cerrar sesión</a></li>
+		</ul>
 			<nav class="white">
     <div class="nav-wrapper">
       <a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
@@ -19,33 +35,14 @@
        	<li><a href="index.html">Inicio</a></li>
         <li><a href="discover.php">Descubrir</a></li>
         <li><a href="create.php">Crear</a></li>
-        <?php 
-						session_start();
-
-						if(!isset($_SESSION['user'])) {
-							echo "<li><a href='login.html'>Log in</a></li>";
-						}
-						else{
-							$user=$_SESSION['user'];
-							echo "<li><a href='profile.php'>Menú de $user</a></li>";							
-						}
-					?>	
+        <li><a class="dropdown-button" href="#!" data-activates="dropdownNormal"><?=$user ?><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="discover.php">Descubrir</a></li>
         <li><a href="create.php">Crear</a></li>
-        <?php 
-						session_start();
-
-						if(!isset($_SESSION['user'])) {
-							echo "<li><a href='login.html'>Log in</a></li>";
-						}
-						else{
-							$user=$_SESSION['user'];
-							echo "<li><a href='profile.php'>Menú de $user</a></li>";							
-						}
-					?>	
+        <li><a href="profile.php">Menu de <?=$user ?></a></li>
+        <li><a href="logout.php">Cerrar sesión</a></li>
       </ul>
     </div>
   </nav>
@@ -168,6 +165,7 @@
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script>
 			$(document).ready(function () {
+				$(".dropdown-button").dropdown();
 				$(".button-collapse").sideNav();
 				$('.modal-trigger').leanModal();
 			});

@@ -56,6 +56,14 @@ body {
 	color: black;
 }
 
+#dropdownNormal {
+	top: initial !important;
+}
+
+#dropdownNormal li a {
+	font-size: 13px;
+}
+
 #login {
 	position: absolute;
 	right: 0;
