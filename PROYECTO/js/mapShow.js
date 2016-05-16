@@ -33,8 +33,8 @@ function iniciarMap() {
 	// Split y convierte a enteros
 	var coordenadasInt = coordenadasFinalString.split(',').map(Number);
 	var coord = [];
-	// Toma la longitud del array principal como refernecia para el for
-	for(i=0; i<ubicaciones.length; i++) {
+	// Recorre el array creado e incrementa 2 cada vuelta
+	for(i=0; i<coordenadasInt.length; i++) {
 		// Crea objetos necesarios para la api de maps y les da las coordenadas de la ruta. Los almacena en el array coord
 		var latlong = new google.maps.LatLng(coordenadasInt[i], coordenadasInt[i+1]);
 		coord.push(latlong);
