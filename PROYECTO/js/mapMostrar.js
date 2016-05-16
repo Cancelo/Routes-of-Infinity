@@ -15,10 +15,14 @@ function iniciarMap() {
   
 	for(i=0; i<coord.length; i++){
 		var ubicaciones = new google.maps.LatLng(coord[i], coord[i+1]);
+		var infowindow = new google.maps.InfoWindow({
+			content: etiquetas[i]
+		});
+		infowindow.open(map, marker);
 		
 		var marker = new google.maps.Marker({
 			position: ubicaciones,
-			title: "hola",
+			title: etiquetas[i],
 			map: map
 		});
 		
@@ -32,7 +36,5 @@ function iniciarMap() {
 
 	map.setCenter(bounds.getCenter());
 	map.fitBounds(bounds);	
-		
-	  
-
+	
 }
