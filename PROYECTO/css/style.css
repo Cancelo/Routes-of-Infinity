@@ -227,3 +227,38 @@ nav .nav-wrapper form, nav .nav-wrapper form .input-field{
 .login {
 	padding: 20px;
 }
+
+/*----- SHOW -----*/
+
+#vota img {
+	width: 30px;
+}
+
+#headerInfoRuta {
+	background-color: #F3EBEB;
+	margin: 10px;
+	-webkit-box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.3);
+	box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.3);
+	border-radius: 2px;
+}
+
+.infoRuta {
+	color: #1ba1e2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
