@@ -52,59 +52,94 @@
 				</ul>
 			</div>
 		</nav>
+		 <nav>
+    <div class="nav-wrapper cyan">
+      <div class="col s12">
+        <a href="#!" class="breadcrumb"></a>
+        <a href="#!" class="breadcrumb">Menú</a>
+      </div>
+    </div>
+  </nav>
 		<div class="container">
-			<div class="row card" id="filtro">
-				<div class="col s12 m12 l3">
-					<nav class="filtroBuscador">
-						<div class="nav-wrapper cyan">
-						<form action="discover.php" method="get">
-							<div class="input-field">
-								<input id="search" type="search" name="b" placeholder="BUSCAR" required>
-								<label for="search"><i class="material-icons">search</i></label>
-								<i class="material-icons">close</i>
-							</div>							
-						</div>
-					</nav>
-				</div>
-				<div class="filtroSelect col s6 m4 l2">
-					<select>
-						<option value="" disabled selected>Orden</option>
-						<option value="1">Ascendente</option>
-						<option value="2">Descendente</option>
-					</select>
-				</div>
-				<div class="filtroSelect col s6 m4 l2">
-					<select>
-						<option value="" disabled selected>Características</option>
-						<option value="1">Valoración</option>
-						<option value="2">Fecha</option>
-						<option value="3">Tamaño de la ruta</option>
-					</select>
-				</div>
-				<div class="filtroSelect col s6 m4 l2">
-					<select>
-						<option value="" disabled selected>Tipo</option>
-						<option value="1">Ocio</option>
-						<option value="2">Cultural</option>
-						<option value="3">Otros</option>
-					</select>
-					</form>
-				</div>
-				<div class="aplicarFiltro col s6 m12 l3">
-					<button class="btn waves-effect waves-light cyan" type="submit" name="action">Aplicar filtro
-						<i class="material-icons right">send</i>
-					</button>
-				</div>				
-			</div>
 			<div class="row">
-				<?php
-					if (isset($_GET['b'])) {
-						include("discoverConsultaBusqueda.php");
-					} else {
-						include("discoverConsulta.php");
-					}
-				?>
-
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="col">
+						  <div class="card">
+							<div class="card-image">
+							  <img src="images/profile2.png">
+							  <span class="card-title">Ruben</span>
+							</div>
+							<div class="card-action">
+							  <a href="#">Eliminar cuenta</a>
+							</div>
+						  </div>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m9 l9">
+					<div class="row card">
+					<ul class="collection">
+						<li class="collection-item avatar">
+						  <i class="material-icons circle blue">folder</i>
+						  <span class="title">Ruta 1</span>
+						  <p>First Line <br>
+							 Second Line
+						  </p>
+						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						</li>
+						<li class="collection-item avatar">
+						  <i class="material-icons circle blue">folder</i>
+						  <span class="title">Ruta 2</span>
+						  <p>First Line <br>
+							 Second Line
+						  </p>
+						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						</li>
+						<li class="collection-item avatar">
+						  <i class="material-icons circle green">folder</i>
+						  <span class="title">Ruta 3</span>
+						  <p>First Line <br>
+							 Second Line
+						  </p>
+						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						</li>
+						<li class="collection-item avatar">
+						  <i class="material-icons circle green">folder</i>
+						  <span class="title">Ruta 4</span>
+						  <p>First Line <br>
+							 Second Line
+						  </p>
+						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						</li>
+						<li class="collection-item avatar">
+						  <i class="material-icons circle orange">folder</i>
+						  <span class="title">Ruta 5</span>
+						  <p>First Line <br>
+							 Second Line
+						  </p>
+						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						</li>
+						<li class="collection-item avatar">
+						  <i class="material-icons circle orange">folder</i>
+						  <span class="title">Ruta 6</span>
+						  <p>First Line <br>
+							 Second Line
+						  </p>
+						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						</li>
+						<li class="collection-item avatar">
+						  <i class="material-icons circle orange">folder</i>
+						  <span class="title">Ruta 6</span>
+						  <p>First Line <br>
+							 Second Line
+						  </p>
+						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+						</li>
+						
+					  </ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer class="page-footer grey darken-2">
