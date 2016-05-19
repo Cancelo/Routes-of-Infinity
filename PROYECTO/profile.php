@@ -11,55 +11,57 @@
 	</head>
 	<body id="discoverBg">
 		<ul id="dropdownNormal" class="dropdown-content">
-		  <li><a href="profile.html">Menú</a></li>
+		  <li><a href="profile.php">Menú</a></li>
 		  <li class="divider"></li>
 		  <li><a href="logout.php">Cerrar sesión</a></li>
 		</ul>
-		<nav class="white">
-			<div class="nav-wrapper">
-				<a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
-				<ul id="navegacion" class="right hide-on-med-and-down">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="discover.php">Descubrir</a></li>
-					<li><a href="create.php">Crear</a></li>
-					<?php 
-						session_start();
+		<div class="navbar-fixed">
+			<nav class="white">
+				<div class="nav-wrapper">
+					<a href="index.html" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
+					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
+					<ul id="navegacion" class="right hide-on-med-and-down">
+						<li><a href="discover.php">Descubrir</a></li>
+						<li><a href="create.php">Crear</a></li>
+						<?php 
+							session_start();
 
-						if(!isset($_SESSION['user'])) {
-							echo "<li><a href='login.html'>Log in</a></li>";
-						}
-						else{
-							$user=$_SESSION['user'];
-							echo "<li><a class='dropdown-button' href='#!'' data-activates='dropdownNormal'>$user<i class='material-icons right'>arrow_drop_down</i></a></li>";							
-						}
-					?>					
-				</ul>
-				<ul class="side-nav" id="mobile-demo">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="discover.php">Descubrir</a></li>
-					<li><a href="create.php">Crear</a></li>
-					<?php
-						if(!isset($_SESSION['user'])) {
-							echo "<li><a href='login.html'>Log in</a></li>";
-						}
-						else{
-							$user=$_SESSION['user'];
-							echo "<li><a href='profile.php'>Menú de $user</a></li>";
-							echo "<li><a href='logout.php'>Cerrar sesión</a></li>";						
-						}
-					?>	
-				</ul>
+							if(!isset($_SESSION['user'])) {
+								echo "<li><a href='login.html'>Log in</a></li>";
+							}
+							else{
+								$user=$_SESSION['user'];
+								echo "<li><a class='dropdown-button' href='#!'' data-activates='dropdownNormal'>$user<i class='material-icons right'>arrow_drop_down</i></a></li>";							
+							}
+						?>					
+					</ul>
+					<ul class="side-nav" id="mobile-demo">
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="discover.php">Descubrir</a></li>
+						<li><a href="create.php">Crear</a></li>
+						<?php
+							if(!isset($_SESSION['user'])) {
+								echo "<li><a href='login.html'>Log in</a></li>";
+							}
+							else{
+								$user=$_SESSION['user'];
+								echo "<li><a href='profile.php'>Menú de $user</a></li>";
+								echo "<li><a href='logout.php'>Cerrar sesión</a></li>";						
+							}
+						?>	
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<nav>
+			<div class="nav-wrapper cyan">
+				<div class="col s12">
+					<a href="profile.php" class="breadcrumb"></a>
+					<a href="profile.php" class="breadcrumb"><?=$_SESSION['user']?></a>
+					<a href="profile.php" class="breadcrumb">Menú</a>
+				</div>
 			</div>
 		</nav>
-		 <nav>
-    <div class="nav-wrapper cyan">
-      <div class="col s12">
-        <a href="#!" class="breadcrumb"></a>
-        <a href="#!" class="breadcrumb">Menú</a>
-      </div>
-    </div>
-  </nav>
 		<div class="container">
 			<div class="row">
 				<div class="col s12 m3 l3">
@@ -68,10 +70,11 @@
 						  <div class="card">
 							<div class="card-image">
 							  <img src="images/profile2.png">
-							  <span class="card-title">Ruben</span>
+							  <span class="card-title black-text">Ruben Federico</span>
+							  
 							</div>
 							<div class="card-action">
-							  <a href="#">Eliminar cuenta</a>
+							  <a href="#" class="cyan-text">Eliminar cuenta</a>
 							</div>
 						  </div>
 						</div>

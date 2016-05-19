@@ -11,17 +11,16 @@
 	</head>
 	<body id="discoverBg">
 		<ul id="dropdownNormal" class="dropdown-content">
-		  <li><a href="profile.html">Menú</a></li>
+		  <li><a href="profile.php">Menú</a></li>
 		  <li class="divider"></li>
 		  <li><a href="logout.php">Cerrar sesión</a></li>
 		</ul>
 		<div class="navbar-fixed">
 			<nav class="white">
 				<div class="nav-wrapper">
-					<a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
+					<a href="index.html" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
 					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
 					<ul id="navegacion" class="right hide-on-med-and-down">
-						<li><a href="index.html">Inicio</a></li>
 						<li><a href="discover.php">Descubrir</a></li>
 						<li><a href="create.php">Crear</a></li>
 						<?php 
