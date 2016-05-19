@@ -52,7 +52,7 @@ include_once("mysql.inc.php");
 									<span class='card-title activator grey-text text-darken-4'>".$registro['nombre']."<i class='material-icons right'>more_vert</i></span>
 									<p>".$registro['ciudad']."</p>
 									<p class='cyan-text' style='font-size: 12px;'>Por ".$registro['user']." a ".$registro['fecha']."</p>						
-									<p class='right-align'><a href='show.php?r=".$registro['id']."'>Ver ruta</a></p>
+									<p class='right-align'><a class='cyan-text' href='show.php?r=".$registro['id']."'>Ver ruta</a></p>
 								</div>
 								<div class='card-reveal'>
 									<span class='card-title grey-text text-darken-4'>".$registro['nombre']."<i class='material-icons right'>close</i></span>
