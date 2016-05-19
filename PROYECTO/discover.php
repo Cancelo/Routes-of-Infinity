@@ -15,41 +15,51 @@
 		  <li class="divider"></li>
 		  <li><a href="logout.php">Cerrar sesión</a></li>
 		</ul>
-		<nav class="white">
-			<div class="nav-wrapper">
-				<a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
-				<ul id="navegacion" class="right hide-on-med-and-down">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="discover.php">Descubrir</a></li>
-					<li><a href="create.php">Crear</a></li>
-					<?php 
-						session_start();
+		<div class="navbar-fixed">
+			<nav class="white">
+				<div class="nav-wrapper">
+					<a href="discover.php" class="brand-logo"><img id="logo" class="responsive-img" src="images/logo1.png"/></a>
+					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
+					<ul id="navegacion" class="right hide-on-med-and-down">
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="discover.php">Descubrir</a></li>
+						<li><a href="create.php">Crear</a></li>
+						<?php 
+							session_start();
 
-						if(!isset($_SESSION['user'])) {
-							echo "<li><a href='login.html'>Log in</a></li>";
-						}
-						else{
-							$user=$_SESSION['user'];
-							echo "<li><a class='dropdown-button' href='#!'' data-activates='dropdownNormal'>$user<i class='material-icons right'>arrow_drop_down</i></a></li>";							
-						}
-					?>					
-				</ul>
-				<ul class="side-nav" id="mobile-demo">
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="discover.php">Descubrir</a></li>
-					<li><a href="create.php">Crear</a></li>
-					<?php
-						if(!isset($_SESSION['user'])) {
-							echo "<li><a href='login.html'>Log in</a></li>";
-						}
-						else{
-							$user=$_SESSION['user'];
-							echo "<li><a href='profile.php'>Menú de $user</a></li>";
-							echo "<li><a href='logout.php'>Cerrar sesión</a></li>";						
-						}
-					?>	
-				</ul>
+							if(!isset($_SESSION['user'])) {
+								echo "<li><a href='login.html'>Log in</a></li>";
+							}
+							else{
+								$user=$_SESSION['user'];
+								echo "<li><a class='dropdown-button' href='#!'' data-activates='dropdownNormal'>$user<i class='material-icons right'>arrow_drop_down</i></a></li>";							
+							}
+						?>					
+					</ul>
+					<ul class="side-nav" id="mobile-demo">
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="discover.php">Descubrir</a></li>
+						<li><a href="create.php">Crear</a></li>
+						<?php
+							if(!isset($_SESSION['user'])) {
+								echo "<li><a href='login.html'>Log in</a></li>";
+							}
+							else{
+								$user=$_SESSION['user'];
+								echo "<li><a href='profile.php'>Menú de $user</a></li>";
+								echo "<li><a href='logout.php'>Cerrar sesión</a></li>";						
+							}
+						?>	
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<nav>
+			<div class="nav-wrapper cyan">
+				<div class="col s12">
+					<a href="#!" class="breadcrumb"></a>
+					<a href="#!" class="breadcrumb">Descubrir</a>
+				</div>
 			</div>
 		</nav>
 		<div class="container">
