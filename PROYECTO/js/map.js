@@ -122,7 +122,7 @@ function guardar() {
 		document.getElementById("etiqueta").focus();
 	}
 	else if(coordenadasEvento == null) {
-		alert("Selecciona un punto en el mapa");
+		Materialize.toast('Selecciona un punto en el mapa', 1000);
 	}
 	else {
 		// Llama a la funcion mostrar
@@ -132,7 +132,7 @@ function guardar() {
 		var div = document.createElement('div');
 		div.innerHTML = "<div class='chip'>"+document.getElementById("etiqueta").value+"</div>";
 		div.setAttribute('class', 'chip');
-		document.getElementById("chipParaTodos").appendChild(div);
+		document.getElementById("chipsLateral").appendChild(div);
 
 		var div = document.createElement('div');
 		div.innerHTML = "<div class='chip'>"+document.getElementById("etiqueta").value+"</div>";
@@ -172,11 +172,15 @@ function undo() {
 	var longitudArray = markersArrayGuardado.length;	
 
 	if(longitudArray <= 0) {
-		alert("No hay ubicaciones guardadas");
+		Materialize.toast('No hay ubicaciones guardadas', 1000)
+
 	}
 	else {
-		var x = document.getElementById("chipParaTodos").lastElementChild;
-		document.getElementById("chipParaTodos").removeChild(x);
+		var x = document.getElementById("chipsLateral").lastElementChild;
+		document.getElementById("chipsLateral").removeChild(x);
+
+		var y = document.getElementById("chipsModal").lastElementChild;
+		document.getElementById("chipsModal").removeChild(y);
 
 		var i = longitudArray - 1;
 		markersArrayGuardado[i].setMap(null);
@@ -187,7 +191,7 @@ function undo() {
 
 function terminar() {
 	if(markersArrayGuardado.length <= 0) {
-		alert("Introduce al menos una ubicación");
+		Materialize.toast('Introduce al menos una ubicación', 1000)
 	}
 	else {
 		var toBBDD = "";

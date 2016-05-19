@@ -186,8 +186,7 @@ nav .nav-wrapper form, nav .nav-wrapper form .input-field{
 }
 
 .filtroSelect {
-	padding-left: 15px !important;
-	padding-right: 15px !important;
+	padding: 9px !important;
 	text-align: center;
 }
 
@@ -196,6 +195,21 @@ nav .nav-wrapper form, nav .nav-wrapper form .input-field{
 	padding-bottom: 13px !important;
     text-align: center;
     font-size: 12px;
+}
+
+.tipoTag {
+	padding: 10px;
+	color: white;
+    position: relative;
+    bottom: 23px;
+    right: 20px;
+    float: right;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+#limpiar {
+	width: 40px;
+	padding: 0px 10px 0px 10px !important;
 }
 
 /* label color */

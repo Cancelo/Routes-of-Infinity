@@ -74,7 +74,7 @@
 							<a id="guardar" class="waves-effect waves-light btn cyan">Guardar</a>
 							<a id="undo" class="waves-effect waves-light btn cyan">Deshacer</a>
 						</div>
-						<div id="chipParaTodos" class="col s12 m12 l12 center-align paddingCol">
+						<div id="chipsLateral" class="col s12 m12 l12 center-align paddingCol">
 
 						</div>
 						<div class="col s12 m12 l12">

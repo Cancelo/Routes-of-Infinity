@@ -1,15 +1,57 @@
 <?php
-include_once("mysql.inc.php");
+	include_once("mysql.inc.php");
+
+	$busqueda = "";
+	$orden = "";
+	$caracteristicas = "";
+	$tipo = "";
+
+	if(isset($_GET['b']) && $_GET['b'] != "") {
+		$busqueda = $_GET['b'];
+	}
+
+	if(isset($_GET['orden']) && $_GET['orden'] != ""){
+		$orden = $_GET['orden'];
+	}
+
+	if(isset($_GET['caract']) && $_GET['caract'] != ""){
+		$caracteristicas = $_GET['caract'];
+
+		switch($caracteristicas) {
+			case "votos":
+			$caracteristicas = "votos";
+			break;
+
+			case "fecha":
+			$caracteristicas = "fecha";
+			break;
+
+			case "tamano":
+			$caracteristicas = "tamano";
+			break;
+		}
+	}
+
+	if(isset($_GET['tipo']) && $_GET['tipo'] != ""){
+		$tipo = $_GET['tipo'];
+	}
+
 
 	conecta($c);
+
+	$busqueda = $_GET['b'];
 
 	if($c==null) {
 		echo "Fallo de conexión";
 	}
 	else {
-		mysqli_select_db($c, "routesofinfinity");
+		mysqli_select_db($c, "routesofinfinity");		
 
-		$sql="SELECT * FROM routes order by fecha desc";
+		$sql="SELECT * FROM routes WHERE 
+		ciudad LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%' 
+		AND tipo = '$tipo'
+		ORDER BY '$caracteristicas' $orden";
+
 
 		$resultado=mysqli_query($c, $sql);
 
@@ -31,7 +73,7 @@ include_once("mysql.inc.php");
 				for($i=0; $i < count($ubicacion)-1; $i++){
 					preg_match('/\((.*?)\)/', $ubicacion[$i], $coord);
 
-					// Concatena las coordenadas con formato determinado
+					// Conctatena las coordenadas con formato determinado
 					$rutaCoord .= "&markers=color:red%7Clabel:%7C".$coord[1];
 				}
 
@@ -57,12 +99,12 @@ include_once("mysql.inc.php");
 							<div class='card'>
 								<div class='card-image waves-effect waves-block waves-light'>
 									<img class='activator' src='".$rutaMaps."'>
-									<i class='material-icons circle tipoTag ".$color."'>".$tipo."</i>
+									<i class='material-icons circle tipoTag".$color."'>".$tipo."</i>
 								</div>
 								<div class='card-content'>
 									<span class='card-title activator grey-text text-darken-4'>".$registro['nombre']."<i class='material-icons right'>more_vert</i></span>
 									<p>".$registro['ciudad']."</p>
-									<p style='font-size: 12.5px;'>Por <span class='cyan-text'>".$registro['user']."</span> a ".$registro['fecha']."</p>						
+									<p class='cyan-text' style='font-size: 12px;'>Por ".$registro['user']." a ".$registro['fecha']."</p>						
 									<p class='right-align'><a class='cyan-text' href='show.php?r=".$registro['id']."'>Ver ruta</a></p>
 								</div>
 								<div class='card-reveal'>

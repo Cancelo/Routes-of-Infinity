@@ -1,3 +1,13 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['user'])) {
+		header("Location:login.html");
+	}
+	else {
+		$user=$_SESSION['user'];
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -23,17 +33,7 @@
 					<ul id="navegacion" class="right hide-on-med-and-down">
 						<li><a href="discover.php">Descubrir</a></li>
 						<li><a href="create.php">Crear</a></li>
-						<?php 
-							session_start();
-
-							if(!isset($_SESSION['user'])) {
-								echo "<li><a href='login.html'>Log in</a></li>";
-							}
-							else{
-								$user=$_SESSION['user'];
-								echo "<li><a class='dropdown-button' href='#!'' data-activates='dropdownNormal'>$user<i class='material-icons right'>arrow_drop_down</i></a></li>";							
-							}
-						?>					
+						<li><a class="dropdown-button" href="#!" data-activates="dropdownNormal"><?=$user?><i class="material-icons right">arrow_drop_down</i></a></li>				
 					</ul>
 					<ul class="side-nav" id="mobile-demo">
 						<li><a href="index.html">Inicio</a></li>
@@ -57,7 +57,7 @@
 			<div class="nav-wrapper cyan">
 				<div class="col s12">
 					<a href="profile.php" class="breadcrumb"></a>
-					<a href="profile.php" class="breadcrumb"><?=$_SESSION['user']?></a>
+					<a href="profile.php" class="breadcrumb"><?=$user?></a>
 					<a href="profile.php" class="breadcrumb">Menú</a>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 						  <div class="card">
 							<div class="card-image">
 							  <img src="images/profile2.png">
-							  <span class="card-title black-text">Ruben Federico</span>
+							  <span class="card-title black-text"><?=$user?></span>
 							  
 							</div>
 							<div class="card-action">
@@ -84,7 +84,7 @@
 					<div class="row card">
 					<ul class="collection">
 						<li class="collection-item avatar">
-						  <i class="material-icons circle blue">folder</i>
+						  <i class="material-icons circle blue">local_bar</i>
 						  <span class="title">Ruta 1</span>
 						  <p>First Line <br>
 							 Second Line
@@ -92,7 +92,7 @@
 						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
 						</li>
 						<li class="collection-item avatar">
-						  <i class="material-icons circle blue">folder</i>
+						  <i class="material-icons circle blue">local_bar</i>
 						  <span class="title">Ruta 2</span>
 						  <p>First Line <br>
 							 Second Line
@@ -100,7 +100,7 @@
 						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
 						</li>
 						<li class="collection-item avatar">
-						  <i class="material-icons circle green">folder</i>
+						  <i class="material-icons circle green">account_balance</i>
 						  <span class="title">Ruta 3</span>
 						  <p>First Line <br>
 							 Second Line
@@ -108,7 +108,7 @@
 						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
 						</li>
 						<li class="collection-item avatar">
-						  <i class="material-icons circle green">folder</i>
+						  <i class="material-icons circle green">account_balance</i>
 						  <span class="title">Ruta 4</span>
 						  <p>First Line <br>
 							 Second Line
@@ -116,7 +116,7 @@
 						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
 						</li>
 						<li class="collection-item avatar">
-						  <i class="material-icons circle orange">folder</i>
+						  <i class="material-icons circle orange">map</i>
 						  <span class="title">Ruta 5</span>
 						  <p>First Line <br>
 							 Second Line
@@ -124,7 +124,7 @@
 						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
 						</li>
 						<li class="collection-item avatar">
-						  <i class="material-icons circle orange">folder</i>
+						  <i class="material-icons circle orange">map</i>
 						  <span class="title">Ruta 6</span>
 						  <p>First Line <br>
 							 Second Line
@@ -132,7 +132,7 @@
 						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
 						</li>
 						<li class="collection-item avatar">
-						  <i class="material-icons circle orange">folder</i>
+						  <i class="material-icons circle orange">map</i>
 						  <span class="title">Ruta 6</span>
 						  <p>First Line <br>
 							 Second Line

@@ -66,9 +66,9 @@
 				<div class="col s12 m12 l3">
 					<nav class="filtroBuscador">
 						<div class="nav-wrapper cyan">
-						<form action="discover.php" method="get">
+						<form action="discoverFiltro.php" method="get">
 							<div class="input-field">
-								<input id="search" type="search" name="b" placeholder="BUSCAR" required>
+								<input id="search" type="search" name="b" placeholder="BUSCAR">
 								<label for="search"><i class="material-icons">search</i></label>
 								<i class="material-icons">close</i>
 							</div>							
@@ -76,39 +76,42 @@
 					</nav>
 				</div>
 				<div class="filtroSelect col s6 m4 l2">
-					<select>
+					<select name="orden" class="browser-default">
 						<option value="" disabled selected>Orden</option>
-						<option value="1">Ascendente</option>
-						<option value="2">Descendente</option>
+						<option value="ASC">Ascendente</option>
+						<option value="DESC">Descendente</option>
 					</select>
 				</div>
 				<div class="filtroSelect col s6 m4 l2">
-					<select>
+					<select name="caract" class="browser-default">
 						<option value="" disabled selected>Características</option>
-						<option value="1">Valoración</option>
-						<option value="2">Fecha</option>
-						<option value="3">Tamaño de la ruta</option>
+						<option value="votos">Valoración</option>
+						<option value="fecha">Fecha</option>
+						<option value="tamano">Tamaño de la ruta</option>
 					</select>
 				</div>
 				<div class="filtroSelect col s6 m4 l2">
-					<select>
+					<select name="tipo" class="browser-default">
 						<option value="" disabled selected>Tipo</option>
-						<option value="1">Ocio</option>
-						<option value="2">Cultural</option>
-						<option value="3">Otros</option>
+						<option value="Ocio">Ocio</option>
+						<option value="Cultural">Cultural</option>
+						<option value="Otros">Otros</option>
 					</select>
-					</form>
 				</div>
 				<div class="aplicarFiltro col s6 m12 l3">
-					<button class="btn waves-effect waves-light cyan" type="submit" name="action">Aplicar filtro
-						<i class="material-icons right">send</i>
+					<button class="btn waves-effect waves-light cyan" type="submit">Aplicar
+						<i class="material-icons right">filter_list</i>
 					</button>
-				</div>				
+					</form>	
+					<button id="limpiar" class="btn waves-effect waves-light cyan" type="submit">
+						<i class="material-icons right">cancel</i>
+					</button>								
+				</div>		
 			</div>
 			<div class="row">
 				<?php
 					if (isset($_GET['b'])) {
-						include("discoverConsultaBusqueda.php");
+						include("discoverFiltro.php");
 					} else {
 						include("discoverConsulta.php");
 					}
@@ -145,11 +148,11 @@
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/scriptDiscover.js"></script>
 		<script>
 			$(document).ready(function () {
 				$(".dropdown-button").dropdown();
 				$(".button-collapse").sideNav();
-				$('select').material_select();
 			});
 		</script>
 	</body>
