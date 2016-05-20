@@ -12,12 +12,12 @@ conecta a la BD y nos devuelve un canal de conexión
 	// servidor donde se encuentra la BD	
 $mysql_server="localhost";		
 
-  // usuario MySQL que utilizo en la conexion
+  // usuario MySQL que utilizo en la conexion root
 
-$mysql_login="root";			  
+$mysql_login="user";			  
 
-	// passwd del usuario en MySQL																													
-$mysql_pass="admin";			  
+	// passwd del usuario en MySQL	admin																												
+$mysql_pass="user";			  
 
 // creo una variable $c sin asignarle ningún valor
 // para que pueda recoger el identificador de conexión

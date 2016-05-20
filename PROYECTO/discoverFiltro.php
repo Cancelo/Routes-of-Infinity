@@ -36,7 +36,6 @@
 		$tipo = $_GET['tipo'];
 	}
 
-
 	conecta($c);
 
 	$busqueda = $_GET['b'];
@@ -48,11 +47,11 @@
 		mysqli_select_db($c, "routesofinfinity");		
 
 		$sql="SELECT * FROM routes WHERE 
-		ciudad LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%' 
+		(ciudad LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%') 
 		AND tipo = '$tipo'
-		ORDER BY '$caracteristicas' $orden";
+		ORDER BY $caracteristicas $orden";
 
-
+echo $sql;
 		$resultado=mysqli_query($c, $sql);
 
 		if($resultado) {
@@ -99,7 +98,7 @@
 							<div class='card'>
 								<div class='card-image waves-effect waves-block waves-light'>
 									<img class='activator' src='".$rutaMaps."'>
-									<i class='material-icons circle tipoTag".$color."'>".$tipo."</i>
+									<i class='material-icons circle tipoTag ".$color."'>".$tipo."</i>
 								</div>
 								<div class='card-content'>
 									<span class='card-title activator grey-text text-darken-4'>".$registro['nombre']."<i class='material-icons right'>more_vert</i></span>

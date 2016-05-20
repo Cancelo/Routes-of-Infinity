@@ -66,7 +66,7 @@
 				<div class="col s12 m12 l3">
 					<nav class="filtroBuscador">
 						<div class="nav-wrapper cyan">
-						<form action="discoverFiltro.php" method="get">
+						<form action="discover.php" method="get">
 							<div class="input-field">
 								<input id="search" type="search" name="b" placeholder="BUSCAR">
 								<label for="search"><i class="material-icons">search</i></label>
@@ -110,7 +110,7 @@
 			</div>
 			<div class="row">
 				<?php
-					if (isset($_GET['b'])) {
+					if (isset($_GET['b']) || isset($_GET['orden']) || isset($_GET['caract']) || isset($_GET['tipo'])) {
 						include("discoverFiltro.php");
 					} else {
 						include("discoverConsulta.php");
