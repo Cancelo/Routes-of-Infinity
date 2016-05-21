@@ -18,6 +18,8 @@
 		date_default_timezone_set('Europe/Madrid');
 		$fecha= date('Y-m-d H:i:s');
 
+		$tamano = substr_count($ubicacionesRuta, ':');
+
 		echo "Tipo ".$tipoRuta;
 
 		include_once("mysql.inc.php");
@@ -31,7 +33,7 @@
 		else {
 			mysqli_select_db($c, "routesofinfinity");
 
-			$sql="insert into routes values (0, '$nombreRuta', '$ciudadRuta', '$descripcionRuta', '$tipoRuta', '$ubicacionesRuta', '$user', '$fecha', 0)";
+			$sql="insert into routes values (0, '$nombreRuta', '$ciudadRuta', '$descripcionRuta', '$tipoRuta', '$ubicacionesRuta', '$user', '$fecha', 0, $tamano)";
 			$resultado=mysqli_query($c, $sql);
 			mysql_query("SET NAMES 'utf8'");
 

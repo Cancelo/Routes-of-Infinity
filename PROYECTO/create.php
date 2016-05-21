@@ -54,7 +54,7 @@
 					<a href="create.php" class="breadcrumb">Crear</a>
 				</div>
 			</div>
-		</nav>
+			</nav>
 		<!-- MAIN -->
 		<div class="container">
 			<div class="row card">			

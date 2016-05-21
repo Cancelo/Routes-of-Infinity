@@ -71,34 +71,27 @@
 		</nav>
 		<!-- MAIN -->
 		<div class="container">
-			<div class="row card">			
+			<div class="row card">
 				<div class="col s12 m8 l8 paddingCol">
 					<div id="mapMostrar"></div>
 				</div>
-				<div class="col s12 m4 l4">
-					<h4><?=$nombre?></h4>
-					<div class="row">
-					<div class="col s12 m12 l12">
-							<div id="vota">
-								<img id="1" src='images/votar/0.png' alt='0'/>
-								<img id="2" src='images/votar/0.png' alt='0'/>
-								<img id="3" src='images/votar/0.png' alt='0'/>
-								<img id="4" src='images/votar/0.png' alt='0'/>
-								<img id="5" src='images/votar/0.png' alt='0'/>
-								<span id="valoracion" style="font-size: 10px;">5.5/10</span>
-							</div>							
-						</div>
-						<div class="col s12 m12 l12" id="headerInfoRuta">
+				<div class="col s12 m4 l4">					
+					<div class="row">					
+						<div class="col s12 m12 l12" id="headerInfoRuta1">
+							<h4><?=$nombre?></h4>
 							<p>Ruta de <span class="infoRuta"><?=$tipo?></span> en <span class="infoRuta"><?=$ciudad?></span>. Creada por <span class="infoRuta"><?=$autor?></span></p>
-						</div>						
+						</div>
 						<div class="col s12 m12 l12">
-							<h5>Descripción</h5>
-							<p><?=$descripcion?></p>
-						</div>						
+							<a class="btnVoto btn tooltipped btn-floating btn-large red" data-position="left" data-delay="50" data-tooltip="16"><i class="material-icons">favorite_border</i></a>
+							<div id="bodyInfo">
+								<h5>Descripción</h5>
+								<p><?=$descripcion?></p>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>	    	
-		</div>		
+			</div>
+		</div>
 
 		<!-- FOOTER -->
 		<footer class="page-footer grey darken-2">
@@ -128,7 +121,6 @@
 			</div>
 		</footer>
 		<script type="text/javascript" src="js/mapShow.js"></script>
-		<script type="text/javascript" src="js/valoracion.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4MUSp0pmtINyDHJKTIMkWJMen94eaYM&libraries=places"
 		async defer></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

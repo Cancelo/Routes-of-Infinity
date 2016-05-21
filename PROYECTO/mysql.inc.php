@@ -14,10 +14,10 @@ $mysql_server="localhost";
 
   // usuario MySQL que utilizo en la conexion root
 
-$mysql_login="user";			  
+$mysql_login="root";			  
 
 	// passwd del usuario en MySQL	admin																												
-$mysql_pass="user";			  
+$mysql_pass="admin";			  
 
 // creo una variable $c sin asignarle ningún valor
 // para que pueda recoger el identificador de conexión

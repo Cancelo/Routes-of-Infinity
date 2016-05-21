@@ -6,52 +6,49 @@
 	$caracteristicas = "";
 	$tipo = "";
 
+	$sql = "SELECT * FROM routes";
+
 	if(isset($_GET['b']) && $_GET['b'] != "") {
 		$busqueda = $_GET['b'];
+
+		$sql .= " WHERE (ciudad LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%')";
 	}
 
-	if(isset($_GET['orden']) && $_GET['orden'] != ""){
-		$orden = $_GET['orden'];
+	if(isset($_GET['tipo']) && $_GET['tipo'] != ""){
+		$tipo = $_GET['tipo'];
+
+		if(isset($_GET['b']) && $_GET['b'] != ""){
+			$sql .= " AND tipo = '$tipo'";
+		}
+		else {
+			$sql .= " WHERE tipo = '$tipo'";
+		}		
 	}
 
 	if(isset($_GET['caract']) && $_GET['caract'] != ""){
 		$caracteristicas = $_GET['caract'];
 
-		switch($caracteristicas) {
-			case "votos":
-			$caracteristicas = "votos";
-			break;
+		$sql .= " ORDER BY $caracteristicas";
+	}	
 
-			case "fecha":
-			$caracteristicas = "fecha";
-			break;
+	if(isset($_GET['orden']) && $_GET['orden'] != ""){
+		$orden = $_GET['orden'];
 
-			case "tamano":
-			$caracteristicas = "tamano";
-			break;
-		}
+		if(isset($_GET['caract']) && $_GET['caract'] != ""){
+			$sql .= " $orden";	
+		}				
 	}
 
-	if(isset($_GET['tipo']) && $_GET['tipo'] != ""){
-		$tipo = $_GET['tipo'];
-	}
+	//echo $sql;
 
 	conecta($c);
-
-	$busqueda = $_GET['b'];
 
 	if($c==null) {
 		echo "Fallo de conexión";
 	}
 	else {
-		mysqli_select_db($c, "routesofinfinity");		
+		mysqli_select_db($c, "routesofinfinity");	
 
-		$sql="SELECT * FROM routes WHERE 
-		(ciudad LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%') 
-		AND tipo = '$tipo'
-		ORDER BY $caracteristicas $orden";
-
-echo $sql;
 		$resultado=mysqli_query($c, $sql);
 
 		if($resultado) {

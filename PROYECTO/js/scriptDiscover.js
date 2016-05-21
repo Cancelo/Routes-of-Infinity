@@ -6,5 +6,5 @@ function iniciar(){
 }
 
 function limpiarFiltro() {
-	alert("a");
+	window.location.href = 'discover.php';
 }

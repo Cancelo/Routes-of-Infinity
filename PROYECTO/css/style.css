@@ -265,9 +265,33 @@ nav .nav-wrapper form, nav .nav-wrapper form .input-field{
 	border-radius: 2px;
 }
 
+#headerInfoRuta1 {
+	background: #f1f1f1;
+	padding-bottom: 20px;
+	
+}
+
+.btnVoto {
+	position: relative;
+    float: right;
+    left: -20px;
+    top: -28px;
+}
+
+#bodyInfo {
+	margin-top: 30px; 
+}
+
 .infoRuta {
 	color: #1ba1e2;
 }
+
+/*----- PROFILE -----*/
+
+#linkVer {
+	right: 45px;
+}
+
 
 
 

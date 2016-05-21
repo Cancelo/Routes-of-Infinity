@@ -109,14 +109,7 @@
 				</div>		
 			</div>
 			<div class="row">
-				<?php
-					if (isset($_GET['b']) || isset($_GET['orden']) || isset($_GET['caract']) || isset($_GET['tipo'])) {
-						include("discoverFiltro.php");
-					} else {
-						include("discoverConsulta.php");
-					}
-				?>
-
+				<?php include("discoverFiltro.php"); ?>
 			</div>
 		</div>
 		<footer class="page-footer grey darken-2">

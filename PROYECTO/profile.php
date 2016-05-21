@@ -83,63 +83,7 @@
 				<div class="col s12 m9 l9">
 					<div class="row card">
 					<ul class="collection">
-						<li class="collection-item avatar">
-						  <i class="material-icons circle blue">local_bar</i>
-						  <span class="title">Ruta 1</span>
-						  <p>First Line <br>
-							 Second Line
-						  </p>
-						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						<li class="collection-item avatar">
-						  <i class="material-icons circle blue">local_bar</i>
-						  <span class="title">Ruta 2</span>
-						  <p>First Line <br>
-							 Second Line
-						  </p>
-						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						<li class="collection-item avatar">
-						  <i class="material-icons circle green">account_balance</i>
-						  <span class="title">Ruta 3</span>
-						  <p>First Line <br>
-							 Second Line
-						  </p>
-						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						<li class="collection-item avatar">
-						  <i class="material-icons circle green">account_balance</i>
-						  <span class="title">Ruta 4</span>
-						  <p>First Line <br>
-							 Second Line
-						  </p>
-						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						<li class="collection-item avatar">
-						  <i class="material-icons circle orange">map</i>
-						  <span class="title">Ruta 5</span>
-						  <p>First Line <br>
-							 Second Line
-						  </p>
-						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						<li class="collection-item avatar">
-						  <i class="material-icons circle orange">map</i>
-						  <span class="title">Ruta 6</span>
-						  <p>First Line <br>
-							 Second Line
-						  </p>
-						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						<li class="collection-item avatar">
-						  <i class="material-icons circle orange">map</i>
-						  <span class="title">Ruta 6</span>
-						  <p>First Line <br>
-							 Second Line
-						  </p>
-						  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						
+						<?php include("profileConsulta.php"); ?>	
 					  </ul>
 					</div>
 				</div>
