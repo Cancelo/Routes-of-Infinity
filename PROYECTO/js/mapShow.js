@@ -4,6 +4,7 @@ window.addEventListener('load', iniciarMap, false);
 var ubicacion = [];
 var coordenadas = [];
 var etiquetas = [];
+var icono = 'images/userMarker.gif';
 
 console.log("[ubicacionesPHP]: "+ubicacionesPHP);
 
@@ -42,6 +43,29 @@ function iniciarMap() {
 		zoom: 4,
 		center: myLatLng
 	});
+
+	// Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      var marker = new google.maps.Marker({
+      position: pos,
+      icon: icono,
+      map: map,
+      optimized: false,
+      title:"Estas aquí"
+  });
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
 	
 	// Split y convierte a enteros
 	var coordenadasInt = coordenadasFinalString.split(',').map(Number);
@@ -59,7 +83,8 @@ function iniciarMap() {
 		var markerMostrar = new google.maps.Marker({
 			position: coord[i],
 			title: etiquetas[i],
-			map: map
+			map: map,
+			animation: google.maps.Animation.DROP
 		});
 		
 		var infowindow = new google.maps.InfoWindow({
@@ -76,8 +101,12 @@ function iniciarMap() {
 	}, new google.maps.LatLngBounds());
 
 	map.setCenter(bounds.getCenter());
-	map.fitBounds(bounds);	
-		
-	  
+	map.fitBounds(bounds);
+}
 
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
 }
