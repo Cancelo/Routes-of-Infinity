@@ -1,0 +1,370 @@
+body {
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+#main {	
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#logoPrincipal {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#logo {
+    width: 150px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+#info {
+    text-align: center;
+    margin: 50px;
+    margin-bottom: 30px;
+    color: #bdbdbd;
+}
+
+#sugerir {
+    text-align: center;
+    margin: 50px;
+    margin-top: 0px;
+    color: #bdbdbd;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#sugerir:hover {
+    color: black;
+
+    transition: 0.5s;
+}
+
+#continuar {
+    text-align: center;
+    color: #212121;
+    cursor: pointer;
+    margin-top: 0px;
+    font-size: 12px;
+}
+
+#navegacion li a {
+    color: black;
+}
+
+#dropdownNormal {
+    top: initial !important;
+}
+
+#dropdownNormal li a {
+    font-size: 13px;
+}
+
+#login {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 10px;
+    padding: 10px;
+    height: 43px;
+    width: 75px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 9;
+
+    transition: 0.5s;
+}
+
+#login:hover {
+    height: 250px;
+    width: 200px;
+
+    transition: 0.5s;	
+}
+
+#login span {
+    color: #bdbdbd;
+    text-decoration: underline;
+}
+
+#login a {
+    font-size: 0.9em;
+    color: #bdbdbd;
+}
+
+#login a:hover {
+    text-decoration: underline;
+}
+
+/* label color */
+.input-field label {
+    color: #bdbdbd;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #000;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #00BCD4;
+    box-shadow: 0 1px 0 0 #00BCD4;
+}
+
+.input-field input[type=password]:focus + label {
+    color: #000;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #00BCD4;
+    box-shadow: 0 1px 0 0 #00BCD4;
+}
+
+nav .nav-wrapper form, nav .nav-wrapper form .input-field{
+    height: 100%;
+}
+
+#copyR {
+    margin-top: 200px;
+    text-align: center;
+    color: white;
+}
+/*----- LOGIN -----*/
+#mainLogin {	
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+/*----- CREATE -----*/
+.paddingCol {
+    padding: 0.75rem !important;
+}
+
+#guardar, #undo {
+    width: 48%;
+    margin-bottom: 5px;
+    font-size: 12px;
+    padding: 0;
+}
+
+#terminar {
+    width: 100%;
+}
+
+.chip {
+    margin-bottom: 5px;
+}
+
+.sinMargen {
+    margin: 0px !important;
+}
+
+#button-collapse {
+    color: black;
+}
+
+/*----- DISCOVER -----*/
+
+.container {
+    width: 90%;
+}
+
+#filtro {
+    margin: 10px 0px 3px 0px;
+}
+
+#filtro .col {
+    padding: 0px;
+}
+
+.filtroBuscador {
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0);
+}
+
+.filtroSelect {
+    padding: 9px !important;
+    text-align: center;
+}
+
+.aplicarFiltro {
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+    text-align: center;
+    font-size: 12px;
+}
+
+.tipoTag {
+    padding: 10px;
+    color: white;
+    position: relative;
+    bottom: 23px;
+    right: 20px;
+    float: right;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+#limpiar {
+    width: 40px;
+    padding: 0px 10px 0px 10px !important;
+}
+
+/* label color */
+.input-field label {
+    color: gray;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: black;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #00bcd4;
+    box-shadow: 0 1px 0 0 #00bcd4;
+}
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #a5d6a7;
+    box-shadow: 0 1px 0 0 #a5d6a7;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #ef9a9a;
+    box-shadow: 0 1px 0 0 #ef9a9a;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #00bcd4;
+}
+
+/*----- LOGIN -----*/
+
+.loginContainer {
+    width: 70%;
+}
+
+.login {
+    padding: 20px;
+}
+
+/*----- SHOW -----*/
+
+#vota img {
+    width: 30px;
+}
+
+#headerInfoRuta {
+    background-color: #F3EBEB;
+    margin: 10px;
+    -webkit-box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.3);
+    box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.3);
+    border-radius: 2px;
+}
+
+#headerInfoRuta1 {
+    background: #f1f1f1;
+    padding-bottom: 20px;
+
+}
+
+.btnVoto {
+    position: relative;
+    float: right;
+    left: -20px;
+    top: -28px;
+}
+
+#bodyInfo {
+    margin-top: 30px; 
+}
+
+.infoRuta {
+    color: #1ba1e2;
+}
+
+/*----- PROFILE -----*/
+
+#linkVer {
+    right: 45px;
+}
+
+/*----- MAPAS -----*/
+
+#map {
+    height:600px;
+    width:800px;
+}
+#mapMostrar {
+    height:600px;
+}
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 300px;
+    border-bottom: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: inherit;
+    margin: 10px 0 0 0;
+    height: 2.2rem;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+.pac-container {
+    font-family: Roboto;
+}
+
+#type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#target {
+    width: 345px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
