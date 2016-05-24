@@ -76,7 +76,7 @@ include_once 'templates/navbar.inc.php';
             $_GET['tipo'] = "";
         }
         Conexion::openConexion();
-        MostrarRutas::rutaConFormato($_GET['b'], $_GET['orden'], $_GET['caract'], $_GET['tipo']);
+        MostrarRutas::mostrarRutas($_GET['b'], $_GET['orden'], $_GET['caract'], $_GET['tipo']);
         Conexion::closeConexion();
         ?>
     </div>
