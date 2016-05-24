@@ -22,18 +22,23 @@ class Usuario {
     public function getId() {
         return $this->id;
     }
+
     public function getNombre() {
         return $this->nombre;
     }
+
     public function getPassword() {
         return $this->password;
     }
+
     public function getFechaRegistro() {
         return $this->fecha_registro;
     }
+
     public function getVip() {
         return $this->vip;
     }
+
     public function getBloqueado() {
         return $this->bloqueado;
     }
@@ -42,13 +47,17 @@ class Usuario {
     public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
+
     public function setPassword($password) {
         $this->paswword = $password;
     }
+
     public function setVip($vip) {
         $this->vip = $vip;
     }
+
     public function setBloqueado($bloqueado) {
         $this->blqueado = $bloqueado;
     }
+
 }

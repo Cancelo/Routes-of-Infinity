@@ -77,10 +77,10 @@ class DAOUsuario {
         return $control;
     }
 
-    public static function usuarioPorNombre($conexion, $nombre){
+    public static function usuarioPorNombre($conexion, $nombre) {
         $usuario = null;
 
-        if(isset($conexion)) {
+        if (isset($conexion)) {
             try {
 
                 $sql = "SELECT * FROM usuario WHERE nombre = :nombre";
@@ -89,9 +89,8 @@ class DAOUsuario {
                 $sentencia->execute();
                 $resultado = $sentencia->fetch();
 
-                if(!empty($resultado)) {
-                    $usuario = new Usuario($resultado['id'], $resultado['nombre'], $resultado['password'],
-                        $resultado['fecha_registro'], $resultado['vip'], $resultado['bloqueado']);
+                if (!empty($resultado)) {
+                    $usuario = new Usuario($resultado['id'], $resultado['nombre'], $resultado['password'], $resultado['fecha_registro'], $resultado['vip'], $resultado['bloqueado']);
                 }
             } catch (PDOException $es) {
                 print "[DAOUsuario]" . $ex->getMessage();
@@ -100,10 +99,10 @@ class DAOUsuario {
         return $usuario;
     }
 
-	public static function usuarioPorId($conexion, $id){
+    public static function usuarioPorId($conexion, $id) {
         $usuario = null;
 
-        if(isset($conexion)) {
+        if (isset($conexion)) {
             try {
 
                 $sql = "SELECT * FROM usuario WHERE id = :id";
@@ -112,15 +111,14 @@ class DAOUsuario {
                 $sentencia->execute();
                 $resultado = $sentencia->fetch();
 
-                if(!empty($resultado)) {
-                    $usuario = new Usuario($resultado['id'], $resultado['nombre'], $resultado['password'],
-                        $resultado['fecha_registro'], $resultado['vip'], $resultado['bloqueado']);
+                if (!empty($resultado)) {
+                    $usuario = new Usuario($resultado['id'], $resultado['nombre'], $resultado['password'], $resultado['fecha_registro'], $resultado['vip'], $resultado['bloqueado']);
                 }
-            }
-			catch (PDOException $es) {
+            } catch (PDOException $es) {
                 print "[DAOUsuario]" . $ex->getMessage();
             }
         }
         return $usuario;
     }
+
 }

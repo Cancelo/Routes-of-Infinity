@@ -3,17 +3,20 @@ include_once 'app/config.inc.php';
 include_once 'app/DAOUsuario.inc.php';
 include_once 'app/DAORuta.inc.php';
 include_once 'app/Ruta.inc.php';
+include_once 'app/ControlSesion.inc.php';
+include_once 'app/Redireccion.inc.php';
+
 
 if (!isset($_GET['r'])) {
-	header("Location:discover.php");
+    Redireccion::redirect(DISCOVER);
 } else if ($_GET['r'] == "") {
-	header("Location:discover.php");
+    Redireccion::redirect(DISCOVER);
 } else {
-		Conexion::openConexion();
-		$ruta = DAORuta::rutaPorId(Conexion::getConexion(), $_GET['r']);
-		if($ruta == null) {
-			header("Location:discover.php");
-		}
+    Conexion::openConexion();
+    $ruta = DAORuta::rutaPorId(Conexion::getConexion(), $_GET['r']);
+    if ($ruta == null) {
+        Redireccion::redirect(DISCOVER);
+    }
 }
 
 include_once 'templates/declaracion.inc.php';

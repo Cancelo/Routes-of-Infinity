@@ -7,7 +7,7 @@ include_once 'app/ValidadorLogin.inc.php';
 include_once 'app/ControlSesion.inc.php';
 include_once 'app/Redireccion.inc.php';
 
-if(ControlSesion::sesionActiva()){
+if (ControlSesion::sesionActiva()) {
     Redireccion::redirect(PROFILE);
 }
 
@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
     $validador = new ValidadorLogin(Conexion::getConexion(), $_POST['user'], $_POST['pass']);
 
     // Si no hay ningun error y usuario no es null, hemos recuperado el usuario y los datos son correctos
-    if($validador->getError() === "" && !is_null($validador->getUsuario())) {
+    if ($validador->getError() === "" && !is_null($validador->getUsuario())) {
         ControlSesion::startSesion($validador->getUsuario()->getId(), $validador->getUsuario()->getNombre());
 
         Redireccion::redirect(PROFILE);

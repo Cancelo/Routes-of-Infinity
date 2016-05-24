@@ -39,7 +39,7 @@ include_once 'templates/navbar.inc.php';
             <select name="caract" class="browser-default">
                 <option value="" disabled selected>Características</option>
                 <option value="votos">Valoración</option>
-                <option value="fecha">Fecha</option>
+                <option value="fecha_creacion">Fecha</option>
                 <option value="tamano">Tamaño de la ruta</option>
             </select>
         </div>
@@ -62,11 +62,23 @@ include_once 'templates/navbar.inc.php';
         </div>		
     </div>
     <div class="row">
-        <?php 
-			Conexion::openConexion();
-			MostrarRutas::rutaConFormato(0);
-			Conexion::closeConexion();
-		?>
+        <?php
+        if (!isset($_GET['b'])) {
+            $_GET['b'] = "";
+        }
+        if (!isset($_GET['orden'])) {
+            $_GET['orden'] = "";
+        }
+        if (!isset($_GET['caract'])) {
+            $_GET['caract'] = "";
+        }
+        if (!isset($_GET['tipo'])) {
+            $_GET['tipo'] = "";
+        }
+        Conexion::openConexion();
+        MostrarRutas::rutaConFormato($_GET['b'], $_GET['orden'], $_GET['caract'], $_GET['tipo']);
+        Conexion::closeConexion();
+        ?>
     </div>
 </div>
 

@@ -8,20 +8,18 @@ include_once 'app/DaoRuta.inc.php';
 include_once 'app/ControlSesion.inc.php';
 include_once 'app/Redireccion.inc.php';
 
-if(!ControlSesion::sesionActiva()){
+if (!ControlSesion::sesionActiva()) {
     Redireccion::redirect(LOGIN);
 }
 
 if (isset($_POST['crear'])) {
     Conexion::openConexion();
 
-    if(!isset($_POST['nombreRuta']) || !isset($_POST['ciudadRuta']) || !isset($_POST['descripcionRuta']) || !isset($_POST['tipo']) || !isset($_POST['ubicacionesRuta'])){
+    if (!isset($_POST['nombreRuta']) || !isset($_POST['ciudadRuta']) || !isset($_POST['descripcionRuta']) || !isset($_POST['tipo']) || !isset($_POST['ubicacionesRuta'])) {
         echo "No se han recibido parametros";
-    }
-    else if($_POST['nombreRuta'] == "" || $_POST['ciudadRuta'] == "" || $_POST['descripcionRuta'] == "" || $_POST['tipo'] == "" || $_POST['ubicacionesRuta'] == "") {
+    } else if ($_POST['nombreRuta'] == "" || $_POST['ciudadRuta'] == "" || $_POST['descripcionRuta'] == "" || $_POST['tipo'] == "" || $_POST['ubicacionesRuta'] == "") {
         echo "Campos vacíos";
-    }
-    else{       
+    } else {
         $count_tamano = substr_count($_POST['ubicacionesRuta'], ':');
         $ruta = new Ruta('', $_POST['nombreRuta'], $_POST['ciudadRuta'], $_POST['descripcionRuta'], $_POST['tipo'], $_POST['ubicacionesRuta'], $_SESSION['id'], '', 0, $count_tamano);
         $control = DAORuta::insertarRuta(Conexion::getConexion(), $ruta);

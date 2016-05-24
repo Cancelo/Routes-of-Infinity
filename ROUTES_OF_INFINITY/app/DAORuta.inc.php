@@ -24,8 +24,7 @@ class DAORuta {
                 $sentencia->bindParam(':tamano', $ruta->getTamano(), PDO::PARAM_INT);
                 // Nos indica si la consulta se ha ejecutado
                 $control = $sentencia->execute();
-            }
-            catch (PDOException $ex) {
+            } catch (PDOException $ex) {
                 print "DAOUsuario" . $ex->getMessage();
             }
         }
@@ -33,66 +32,110 @@ class DAORuta {
         return $control;
     }
 
-	public static function getTodas($conexion) {
-		$rutas = [];
+    public static function getTodas($conexion) {
+        $rutas = [];
 
-		if(isset($conexion)) {
-			try {
-				$sql = "SELECT * FROM ruta ORDER BY fecha_creacion DESC";
-				$sentencia = $conexion->prepare($sql);
-				$sentencia->execute();
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT * FROM ruta ORDER BY fecha_creacion DESC";
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->execute();
 
-				$resultado = $sentencia->fetchAll();
+                $resultado = $sentencia->fetchAll();
 
-				if(count($resultado)){
-					foreach($resultado as $fila) {
-						$rutas[] = new Ruta(
-							$fila['id'], $fila['nombre'], $fila['ciudad'],
-							$fila['descripcion'], $fila['tipo'], $fila['ubicaciones'],
-							$fila['id_usuario'], $fila['fecha_creacion'], $fila['votos'], $fila['tamano']
-						);
-					}
-				}
-			} catch (PDOException $ex) {
-				print "DAORuta" . $ex->getMessage();
-			}
-		}
-		return $rutas;
-	}
+                if (count($resultado)) {
+                    foreach ($resultado as $fila) {
+                        $rutas[] = new Ruta(
+                                $fila['id'], $fila['nombre'], $fila['ciudad'], $fila['descripcion'], $fila['tipo'], $fila['ubicaciones'], $fila['id_usuario'], $fila['fecha_creacion'], $fila['votos'], $fila['tamano']
+                        );
+                    }
+                }
+            } catch (PDOException $ex) {
+                print "DAORuta" . $ex->getMessage();
+            }
+        }
+        return $rutas;
+    }
 
-	public static function getTodasPorIdUsuario($conexion) {
-		$rutas = [];
+    public static function getTodasFiltro($conexion, $busqueda, $orden, $caracteristicas, $tipo) {
+        $rutas = [];
 
-		if(isset($conexion)) {
-			try {
-				$sql = "SELECT * FROM ruta WHERE id_usuario = :id_usuario ORDER BY fecha_creacion DESC";
-				$sentencia = $conexion->prepare($sql);
-				$sentencia->bindParam(':id_usuario', $_SESSION['id'], PDO::PARAM_STR);
-				$sentencia->execute();
+        if (isset($conexion)) {
+            // Creamos la consulta segun los parametros del filtro, la ejecutamos y devolvemos el resultado
+            $sql = "SELECT * FROM ruta";
 
-				$resultado = $sentencia->fetchAll();
+            if ($busqueda == "" && $orden == "" && $caracteristicas == "" && $tipo == "") {
+                $sql = "SELECT * FROM ruta ORDER BY fecha_creacion DESC";
+            }
+            if ($busqueda != "") {
+                $sql .= " WHERE (ciudad LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%')";
+            }
+            if ($tipo != "") {
+                if ($busqueda != "") {
+                    $sql .= " AND tipo = '$tipo'";
+                } else {
+                    $sql .= " WHERE tipo = '$tipo'";
+                }
+            }
+            if ($caracteristicas != "") {
+                $sql .= " ORDER BY $caracteristicas";
+            }
+            if ($orden != "") {
+                if ($caracteristicas != "") {
+                    $sql .= " $orden";
+                }
+            }
+            //echo $sql;
+            try {
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->execute();
 
-				if(count($resultado)){
-					foreach($resultado as $fila) {
-						$rutas[] = new Ruta(
-							$fila['id'], $fila['nombre'], $fila['ciudad'],
-							$fila['descripcion'], $fila['tipo'], $fila['ubicaciones'],
-							$fila['id_usuario'], $fila['fecha_creacion'], $fila['votos'], $fila['tamano']
-						);
-					}
-				}
-			}
-			catch (PDOException $ex) {
-				print "DAORuta" . $ex->getMessage();
-			}
-		}
-		return $rutas;
-	}
+                $resultado = $sentencia->fetchAll();
 
-	public static function rutaPorId($conexion, $id){
+                if (count($resultado)) {
+                    foreach ($resultado as $fila) {
+                        $rutas[] = new Ruta(
+                                $fila['id'], $fila['nombre'], $fila['ciudad'], $fila['descripcion'], $fila['tipo'], $fila['ubicaciones'], $fila['id_usuario'], $fila['fecha_creacion'], $fila['votos'], $fila['tamano']
+                        );
+                    }
+                }
+            } catch (PDOException $ex) {
+                print "DAORuta" . $ex->getMessage();
+            }
+        }
+        return $rutas;
+    }
+
+    public static function getTodasPorIdUsuario($conexion) {
+        $rutas = [];
+
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT * FROM ruta WHERE id_usuario = :id_usuario ORDER BY fecha_creacion DESC";
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->bindParam(':id_usuario', $_SESSION['id'], PDO::PARAM_STR);
+                $sentencia->execute();
+
+                $resultado = $sentencia->fetchAll();
+
+                if (count($resultado)) {
+                    foreach ($resultado as $fila) {
+                        $rutas[] = new Ruta(
+                                $fila['id'], $fila['nombre'], $fila['ciudad'], $fila['descripcion'], $fila['tipo'], $fila['ubicaciones'], $fila['id_usuario'], $fila['fecha_creacion'], $fila['votos'], $fila['tamano']
+                        );
+                    }
+                }
+            } catch (PDOException $ex) {
+                print "DAORuta" . $ex->getMessage();
+            }
+        }
+        return $rutas;
+    }
+
+    public static function rutaPorId($conexion, $id) {
         $ruta = null;
 
-        if(isset($conexion)) {
+        if (isset($conexion)) {
             try {
                 $sql = "SELECT * FROM ruta WHERE id = :id";
                 $sentencia = $conexion->prepare($sql);
@@ -100,18 +143,16 @@ class DAORuta {
                 $sentencia->execute();
                 $resultado = $sentencia->fetch();
 
-                if(!empty($resultado)) {
+                if (!empty($resultado)) {
                     $ruta = new Ruta(
-							$resultado['id'], $resultado['nombre'], $resultado['ciudad'],
-							$resultado['descripcion'], $resultado['tipo'], $resultado['ubicaciones'],
-							$resultado['id_usuario'], $resultado['fecha_creacion'], $resultado['votos'], $resultado['tamano']
-						);
+                            $resultado['id'], $resultado['nombre'], $resultado['ciudad'], $resultado['descripcion'], $resultado['tipo'], $resultado['ubicaciones'], $resultado['id_usuario'], $resultado['fecha_creacion'], $resultado['votos'], $resultado['tamano']
+                    );
                 }
-            }
-			catch (PDOException $es) {
+            } catch (PDOException $es) {
                 print "[DAORuta]" . $ex->getMessage();
             }
         }
         return $ruta;
     }
+
 }
