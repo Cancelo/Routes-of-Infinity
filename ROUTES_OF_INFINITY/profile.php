@@ -1,5 +1,14 @@
 <?php
 include_once 'app/config.inc.php';
+include_once 'app/Conexion.inc.php';
+include_once 'app/MostrarRutas.inc.php';
+include_once 'app/ControlSesion.inc.php';
+include_once 'app/Redireccion.inc.php';
+
+if(!ControlSesion::sesionActiva()){
+    Redireccion::redirect(LOGIN);
+}
+
 include_once 'templates/declaracion.inc.php';
 include_once 'templates/navbar.inc.php';
 ?>
@@ -8,7 +17,7 @@ include_once 'templates/navbar.inc.php';
     <div class="nav-wrapper cyan">
         <div class="col s12">
             <a href="#" class="breadcrumb"></a>
-            <a href="#" class="breadcrumb"><?= $user ?></a>
+            <a href="#" class="breadcrumb"><?php echo $_SESSION['nombre']; ?></a>
             <a href="profile.php" class="breadcrumb">Menú</a>
         </div>
     </div>
@@ -21,7 +30,7 @@ include_once 'templates/navbar.inc.php';
                     <div class="card">
                         <div class="card-image">
                             <img src="images/profile2.png">
-                            <span class="card-title black-text"><?= $user ?></span>
+                            <span class="card-title black-text"><?php echo $_SESSION['nombre']; ?></span>
 
                         </div>
                         <div class="card-action">
@@ -34,7 +43,11 @@ include_once 'templates/navbar.inc.php';
         <div class="col s12 m9 l9">
             <div class="row card">
                 <ul class="collection">
-                    <?php include("profileConsulta.php"); ?>	
+                    <?php 
+					Conexion::openConexion();
+					MostrarRutas::rutaConFormato(1);
+					Conexion::closeConexion();
+                    ?>	
                 </ul>
             </div>
         </div>

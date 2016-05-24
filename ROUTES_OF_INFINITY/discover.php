@@ -1,5 +1,7 @@
 <?php
 include_once 'app/config.inc.php';
+include_once 'app/MostrarRutas.inc.php';
+
 include_once 'templates/declaracion.inc.php';
 include_once 'templates/navbar.inc.php';
 ?>
@@ -60,7 +62,11 @@ include_once 'templates/navbar.inc.php';
         </div>		
     </div>
     <div class="row">
-        <?php include("discoverFiltro.php"); ?>
+        <?php 
+			Conexion::openConexion();
+			MostrarRutas::rutaConFormato(0);
+			Conexion::closeConexion();
+		?>
     </div>
 </div>
 

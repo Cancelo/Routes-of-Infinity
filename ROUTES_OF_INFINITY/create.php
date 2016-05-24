@@ -1,5 +1,39 @@
 <?php
 include_once 'app/config.inc.php';
+include_once 'app/Conexion.inc.php';
+include_once 'app/Usuario.inc.php';
+include_once 'app/Ruta.inc.php';
+include_once 'app/DAOUsuario.inc.php';
+include_once 'app/DaoRuta.inc.php';
+include_once 'app/ControlSesion.inc.php';
+include_once 'app/Redireccion.inc.php';
+
+if(!ControlSesion::sesionActiva()){
+    Redireccion::redirect(LOGIN);
+}
+
+if (isset($_POST['crear'])) {
+    Conexion::openConexion();
+
+    if(!isset($_POST['nombreRuta']) || !isset($_POST['ciudadRuta']) || !isset($_POST['descripcionRuta']) || !isset($_POST['tipo']) || !isset($_POST['ubicacionesRuta'])){
+        echo "No se han recibido parametros";
+    }
+    else if($_POST['nombreRuta'] == "" || $_POST['ciudadRuta'] == "" || $_POST['descripcionRuta'] == "" || $_POST['tipo'] == "" || $_POST['ubicacionesRuta'] == "") {
+        echo "Campos vacíos";
+    }
+    else{       
+        $count_tamano = substr_count($_POST['ubicacionesRuta'], ':');
+        $ruta = new Ruta('', $_POST['nombreRuta'], $_POST['ciudadRuta'], $_POST['descripcionRuta'], $_POST['tipo'], $_POST['ubicacionesRuta'], $_SESSION['id'], '', 0, $count_tamano);
+        $control = DAORuta::insertarRuta(Conexion::getConexion(), $ruta);
+
+        if ($control) {
+            echo "Correcto";
+        }
+    }
+    Conexion:: closeConexion();
+}
+
+
 include_once 'templates/declaracion.inc.php';
 include_once 'templates/navbar.inc.php';
 ?>
@@ -49,7 +83,7 @@ include_once 'templates/navbar.inc.php';
             <h5>Finalizar ruta</h5>
             <p>Para finalizar introduce el nombre de la ruta, la ciudad en la que se encuentra y una descripción de la misma.</p>
         </div>
-        <form method="post" action="save.php" name="datos">
+        <form method="post" action="create.php" name="datos">
             <div class="row sinMargen">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">label</i>
@@ -87,6 +121,7 @@ include_once 'templates/navbar.inc.php';
                 <div id="chipsModal" class=" col s12"></div>
             </div>
             <input type="hidden" name="ubicacionesRuta" id="ubicacionesRuta"/>
+            <input type="hidden" name="crear"/>
         </form>
     </div>
 

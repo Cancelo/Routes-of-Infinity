@@ -20,7 +20,7 @@ class Ruta {
         $this->descripcion = $descripcion;
         $this->tipo = $tipo;
         $this->ubicaciones = $ubicaciones;
-        $this->id_usuario = $usuario;
+        $this->id_usuario = $id_usuario;
         $this->fecha_creacion = $fecha_creacion;
         $this->votos = $votos;
         $this->tamano = $tamano;
@@ -52,9 +52,11 @@ class Ruta {
         return $this->fecha_creacion;
     }
     public function getVotos() {
-        return $this->id;
+        return $this->votos;
     }
     public function getTamano() {
         return $this->tamano;
     }
+    // En esta versión de la aplicación no se podrán modificar las rutas creadas, por eso no existen setters
+
 }

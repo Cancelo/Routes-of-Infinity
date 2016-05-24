@@ -3,6 +3,13 @@ include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
 include_once 'app/Usuario.inc.php';
 include_once 'app/DAOUsuario.inc.php';
+include_once 'app/ValidadorLogin.inc.php';
+include_once 'app/ControlSesion.inc.php';
+include_once 'app/Redireccion.inc.php';
+
+if(ControlSesion::sesionActiva()){
+    Redireccion::redirect(PROFILE);
+}
 
 if (isset($_POST['registro'])) {
     Conexion::openConexion();
@@ -10,7 +17,7 @@ if (isset($_POST['registro'])) {
     if (!isset($_POST['user']) || !isset($_POST['pass']) || !isset($_POST['repass'])) {
         echo "No se han recibido datos";
         #header("Location:index.php");
-    } else if ($_POST['user'] == "" || $_POST['pass'] == "" | $_POST['repass'] == "") {
+    } else if ($_POST['user'] == "" || $_POST['pass'] == "" || $_POST['repass'] == "") {
         echo "Campos vacíos";
         #header("Location:index.php");
     } else if ($_POST['pass'] != $_POST['repass']) {
@@ -23,16 +30,23 @@ if (isset($_POST['registro'])) {
 
         if ($control) {
             echo "Correcto";
-            // Redirigir a login.php
         }
     }
     Conexion:: closeConexion();
 }
 
 if (isset($_POST['login'])) {
-    
-}
+    Conexion::openConexion();
+    $validador = new ValidadorLogin(Conexion::getConexion(), $_POST['user'], $_POST['pass']);
 
+    // Si no hay ningun error y usuario no es null, hemos recuperado el usuario y los datos son correctos
+    if($validador->getError() === "" && !is_null($validador->getUsuario())) {
+        ControlSesion::startSesion($validador->getUsuario()->getId(), $validador->getUsuario()->getNombre());
+
+        Redireccion::redirect(PROFILE);
+    }
+    Conexion::closeConexion();
+}
 
 include_once 'templates/declaracion.inc.php';
 include_once 'templates/navbar.inc.php';
