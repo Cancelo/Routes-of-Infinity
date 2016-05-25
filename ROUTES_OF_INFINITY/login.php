@@ -7,6 +7,9 @@ include_once 'app/ValidadorLogin.inc.php';
 include_once 'app/ControlSesion.inc.php';
 include_once 'app/Redireccion.inc.php';
 
+include_once 'templates/declaracion.inc.php';
+include_once 'templates/navbar.inc.php';
+
 if (ControlSesion::sesionActiva()) {
     Redireccion::redirect(PROFILE);
 }
@@ -15,21 +18,22 @@ if (isset($_POST['registro'])) {
     Conexion::openConexion();
 
     if (!isset($_POST['user']) || !isset($_POST['pass']) || !isset($_POST['repass'])) {
-        echo "No se han recibido datos";
+        echo "<script>showToast('Algo ha salido mal, asegurate de rellenar todos los campos', 3500);</script>";
         #header("Location:index.php");
     } else if ($_POST['user'] == "" || $_POST['pass'] == "" || $_POST['repass'] == "") {
-        echo "Campos vacÃ­os";
+        echo "<script>showToast('Asegurate de rellenar todos los campos', 3500);</script>";
         #header("Location:index.php");
     } else if ($_POST['pass'] != $_POST['repass']) {
-        echo "No coincide";
+        echo "<script>showToast('Las contraseñas no coinciden', 3000);</script>";
     } else if (DAOUsuario::nombreRepetido(Conexion::getConexion(), $_POST['user'])) {
-        echo "Nombre repetido";
+        echo "<script>showToast('El nombre de usuario ya se encuentra en uso', 3500);</script>";
     } else {
         $usuario = new Usuario('', $_POST['user'], password_hash($_POST['pass'], PASSWORD_DEFAULT), '', 0, 0);
         $control = DAOUsuario::insertarUsuario(Conexion::getConexion(), $usuario);
 
         if ($control) {
-            echo "Correcto";
+            echo "<script>showToast('Registro completo, inicia sesión para acceder a tu perfil', 3500);</script>";
+            ;
         }
     }
     Conexion:: closeConexion();
@@ -38,20 +42,16 @@ if (isset($_POST['registro'])) {
 if (isset($_POST['login'])) {
     Conexion::openConexion();
     $validador = new ValidadorLogin(Conexion::getConexion(), $_POST['user'], $_POST['pass']);
-
     // Si no hay ningun error y usuario no es null, hemos recuperado el usuario y los datos son correctos
     if ($validador->getError() === "" && !is_null($validador->getUsuario())) {
         ControlSesion::startSesion($validador->getUsuario()->getId(), $validador->getUsuario()->getNombre());
-
         Redireccion::redirect(PROFILE);
+    } else {
+        echo $validador->getError();
     }
     Conexion::closeConexion();
 }
-
-include_once 'templates/declaracion.inc.php';
-include_once 'templates/navbar.inc.php';
 ?>
-
 <nav>
     <div class="nav-wrapper cyan">
         <div class="col s12">
@@ -122,9 +122,6 @@ include_once 'templates/navbar.inc.php';
 <?php
 include_once 'templates/footer.inc.php';
 ?>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".button-collapse").sideNav();

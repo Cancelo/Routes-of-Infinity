@@ -8,6 +8,9 @@ include_once 'app/DaoRuta.inc.php';
 include_once 'app/ControlSesion.inc.php';
 include_once 'app/Redireccion.inc.php';
 
+include_once 'templates/declaracion.inc.php';
+include_once 'templates/navbar.inc.php';
+
 if (!ControlSesion::sesionActiva()) {
     Redireccion::redirect(LOGIN);
 }
@@ -16,24 +19,20 @@ if (isset($_POST['crear'])) {
     Conexion::openConexion();
 
     if (!isset($_POST['nombreRuta']) || !isset($_POST['ciudadRuta']) || !isset($_POST['descripcionRuta']) || !isset($_POST['tipo']) || !isset($_POST['ubicacionesRuta'])) {
-        echo "No se han recibido parametros";
+        echo "<script>showToast('Algo ha salido mal, asegurate de rellenar todos los campos', 3500);</script>";
     } else if ($_POST['nombreRuta'] == "" || $_POST['ciudadRuta'] == "" || $_POST['descripcionRuta'] == "" || $_POST['tipo'] == "" || $_POST['ubicacionesRuta'] == "") {
-        echo "Campos vacÃ­os";
+        echo "<script>showToast('Asegurate de rellenar todos los campos', 3500);</script>";
     } else {
         $count_tamano = substr_count($_POST['ubicacionesRuta'], ':');
         $ruta = new Ruta('', $_POST['nombreRuta'], $_POST['ciudadRuta'], $_POST['descripcionRuta'], $_POST['tipo'], $_POST['ubicacionesRuta'], $_SESSION['id'], '', 0, $count_tamano);
         $control = DAORuta::insertarRuta(Conexion::getConexion(), $ruta);
 
         if ($control) {
-            echo "Correcto";
+            echo "<script>showToast('Ruta guardada, puedes verla en tu menú', 3500);</script>";
         }
     }
     Conexion:: closeConexion();
 }
-
-
-include_once 'templates/declaracion.inc.php';
-include_once 'templates/navbar.inc.php';
 ?>
 
 <nav>
@@ -67,7 +66,7 @@ include_once 'templates/navbar.inc.php';
 
                 </div>
                 <div class="col s12 m12 l12">
-                    <a id="terminar" class="modal-trigger waves-effect waves-light btn cyan" href="#modal1">Continuar</a>
+                    <a id="terminar" class="modal-trigger waves-effect waves-light btn cyan" href="#">Continuar</a>
                 </div>
             </div>	    			
         </div>
@@ -136,13 +135,10 @@ include_once 'templates/footer.inc.php';
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4MUSp0pmtINyDHJKTIMkWJMen94eaYM&libraries=places&callback=initAutocomplete"
 async defer></script>
 <script type="text/javascript" src="js/scriptCreate.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".dropdown-button").dropdown();
         $(".button-collapse").sideNav();
-        $('.modal-trigger').leanModal();
     });
 </script>
 </body>

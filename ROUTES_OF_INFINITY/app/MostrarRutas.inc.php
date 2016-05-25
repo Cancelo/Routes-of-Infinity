@@ -1,11 +1,12 @@
 <?php
+
 include_once 'app/Conexion.inc.php';
 include_once 'app/DAORuta.inc.php';
 include_once 'app/DAOUsuario.inc.php';
 
 class MostrarRutas {
 
-    public static function mostrarRutas($busqueda, $orden, $caracteristicas, $tipo) {
+    public static function mostrarRutasDiscover($busqueda, $orden, $caracteristicas, $tipo) {
         $rutas = DAORuta::getTodasFiltro(Conexion::getConexion(), $busqueda, $orden, $caracteristicas, $tipo);
         if (count($rutas)) {
             foreach ($rutas as $ruta) {

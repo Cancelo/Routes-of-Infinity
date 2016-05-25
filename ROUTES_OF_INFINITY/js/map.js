@@ -117,12 +117,13 @@ function borrarTmp() {
 
 // Guarda las coordenadas del evento click en el array definitivo
 function guardar() {
-    // Si no se introduce etiqueta no se guarda y establece el foco en el input etiqueta
-    if (document.getElementById("etiqueta").value.length == 0 || document.getElementById("etiqueta").value == null) {
-        document.getElementById("etiqueta").focus();
+    // Si no se introduce etiqueta no se guarda y establece el foco en el input etiqueta    
+    if (coordenadasEvento == null) {
+        Materialize.toast('Selecciona una ubicacion en el mapa', 1000);
     }
-    else if (coordenadasEvento == null) {
-        Materialize.toast('Selecciona un punto en el mapa', 1000);
+    else if (document.getElementById("etiqueta").value.length == 0 || document.getElementById("etiqueta").value == null) {
+        document.getElementById("etiqueta").focus();
+        Materialize.toast('Introduce un nombre para la ubicaci�n seleccionada', 1000);
     }
     else {
         // Llama a la funcion mostrar
@@ -172,7 +173,7 @@ function undo() {
     var longitudArray = markersArrayGuardado.length;
 
     if (longitudArray <= 0) {
-        Materialize.toast('No hay ubicaciones guardadas', 1000)
+        Materialize.toast('No hay ubicaciones guardadas', 1000);
 
     }
     else {
@@ -191,9 +192,10 @@ function undo() {
 
 function terminar() {
     if (markersArrayGuardado.length <= 0) {
-        Materialize.toast('Introduce al menos una ubicación', 1000)
+        Materialize.toast('Introduce al menos una ubicación', 1000);
     }
     else {
+        $('#modal1').openModal();
         var toBBDD = "";
 
         for (var indice in markersArrayGuardado) {

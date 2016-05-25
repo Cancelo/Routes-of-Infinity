@@ -1,3 +1,3 @@
-function enviar_form(){ 
-	document.datos.submit() 
+function enviar_form() {
+    document.datos.submit()
 }

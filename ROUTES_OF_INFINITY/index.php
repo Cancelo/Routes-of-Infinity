@@ -28,10 +28,6 @@ include_once 'templates/declaracion.inc.php';
 <footer id="copyR">
     <p>Routes of infinity - <a href="rcancelo.com">rcancelo</a></p>
 </footer>
-
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/scriptIndex.js"></script>
 </body>
 </html>

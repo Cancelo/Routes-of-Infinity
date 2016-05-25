@@ -67,8 +67,6 @@ Conexion::closeConexion();
 <script type="text/javascript" src="js/mapShow.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4MUSp0pmtINyDHJKTIMkWJMen94eaYM&libraries=places"
 async defer></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".button-collapse").sideNav();

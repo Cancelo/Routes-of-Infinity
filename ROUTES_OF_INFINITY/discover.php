@@ -76,7 +76,7 @@ include_once 'templates/navbar.inc.php';
             $_GET['tipo'] = "";
         }
         Conexion::openConexion();
-        MostrarRutas::mostrarRutas($_GET['b'], $_GET['orden'], $_GET['caract'], $_GET['tipo']);
+        MostrarRutas::mostrarRutasDiscover($_GET['b'], $_GET['orden'], $_GET['caract'], $_GET['tipo']);
         Conexion::closeConexion();
         ?>
     </div>
@@ -85,10 +85,6 @@ include_once 'templates/navbar.inc.php';
 <?php
 include_once 'templates/footer.inc.php';
 ?>
-
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/scriptDiscover.js"></script>
 <script>
     $(document).ready(function () {

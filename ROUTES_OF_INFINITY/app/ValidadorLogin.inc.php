@@ -5,19 +5,17 @@ include_once 'DAOUsuario.inc.php';
 class ValidadorLogin {
 
     private $usuario;
-    private $alert;
+    private $error;
 
     public function __construct($conexion, $nombre, $password) {
         $this->error = "";
-
         if (!$this->controlVariable($nombre) || !$this->controlVariable($password)) {
             $this->usuario = null;
-            $this->alert = "Campos vacÃ­os o no recibidos";
+            $this->error = "<script>showToast('Algo ha salido mal, asegurate de rellenar todos los campos', 3500);</script>";
         } else {
             $this->usuario = DAOUsuario::usuarioPorNombre($conexion, $nombre);
-
             if (is_null($this->usuario) || !password_verify($password, $this->usuario->getPassword())) {
-                $this->alert = "Datos incorrectos";
+                $this->error = "<script>showToast('El usuario o la contraseña son incorrectos', 3500);</script>";
             }
         }
     }
@@ -36,13 +34,6 @@ class ValidadorLogin {
 
     public function getError() {
         return $this->error;
-    }
-
-    public function showAlert() {
-        if ($this->error !== "") {
-            echo "ERROR";
-            echo $this->error;
-        }
     }
 
 }

@@ -18,7 +18,7 @@ include_once 'app/ControlSesion.inc.php';
                 <li><a href="<?php echo CREATE; ?>">Crear</a></li>
                 <?php if(ControlSesion::sesionActiva()) { ?>
 
-                <li><a class="dropdown-button" href="#" data-activates="dropdownNormal">Menú de <?php echo $_SESSION['nombre']; ?><i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-button" href="#" data-activates="dropdownNormal"><?php echo $_SESSION['nombre']; ?><i class="material-icons right">arrow_drop_down</i></a></li>
 
                 <?php } else { ?>
 
