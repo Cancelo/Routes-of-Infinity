@@ -6,7 +6,6 @@ include_once 'app/Ruta.inc.php';
 include_once 'app/ControlSesion.inc.php';
 include_once 'app/Redireccion.inc.php';
 
-
 if (!isset($_GET['r'])) {
     Redireccion::redirect(DISCOVER);
 } else if ($_GET['r'] == "") {
@@ -45,7 +44,8 @@ include_once 'templates/navbar.inc.php';
                     <p>Ruta de <span class="infoRuta"><?php echo $ruta->getTipo(); ?></span> en <span class="infoRuta"><?php echo $ruta->getCiudad(); ?></span>. Creada por <span class="infoRuta"><?php echo DAOUsuario::usuarioPorId(Conexion::getConexion(), $ruta->getIdUsuario())->getNombre(); ?></span></p>
                 </div>
                 <div class="col s12 m12 l12">
-                    <a class="btnVoto btn tooltipped btn-floating btn-large red" data-position="left" data-delay="50" data-tooltip="<?php echo $ruta->getVotos(); ?>"><i class="material-icons">favorite_border</i></a>
+					<p id="votar"></p>
+                    <a onclick="getVotos('<?php echo $_GET['r']; ?>');" class="btnVoto btn tooltipped btn-floating btn-large red" data-position="left" data-delay="50" data-tooltip="<?php echo $ruta->getVotos(); ?>"><i class="material-icons">favorite_border</i></a>
                     <div id="bodyInfo">
                         <h5>Descripción</h5>
                         <p><?php echo $ruta->getDescripcion(); ?></p>
@@ -64,6 +64,7 @@ Conexion::closeConexion();
 <script type="text/javascript">
     var ubicacionesPHP = '<?php echo $ruta->getUbicaciones(); ?>';
 </script>
+<script type="text/javascript" src="js/votacion.js"></script>
 <script type="text/javascript" src="js/mapShow.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV4MUSp0pmtINyDHJKTIMkWJMen94eaYM&libraries=places"
 async defer></script>

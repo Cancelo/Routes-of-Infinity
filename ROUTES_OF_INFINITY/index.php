@@ -8,12 +8,12 @@ include_once 'templates/declaracion.inc.php';
             <img class="responsive-img" src="images/logo1.png" alt="logo">
         </div>
         <p id="info">0 rutas creadas.</p>
-        <p id="sugerir">Sugerir ruta segúnn mi ubicación.</p>					
+        <p id="sugerir">Sugerir ruta segÃºnn mi ubicaciÃ³n.</p>					
         <nav>
             <div class="nav-wrapper cyan">
                 <form action="discover.php" method="get">
                     <div class="input-field">
-                        <input id="search" type="search" name="b" placeholder="EMPIEZA AQUÍ?..." required>
+                        <input id="search" type="search" name="b" placeholder="EMPIEZA AQUÃ..." required>
                         <label for="search"><i class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
                     </div>

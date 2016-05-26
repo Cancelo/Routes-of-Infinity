@@ -67,5 +67,5 @@ class Ruta {
         return $this->tamano;
     }
 
-    // En esta versión de la aplicación no se podrán modificar las rutas creadas, por eso no existen setters
+    // En esta versiÃ³n de la aplicaciÃ³n no se podrÃ¡n modificar las rutas creadas, por eso no existen setters
 }

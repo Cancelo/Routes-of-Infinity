@@ -18,7 +18,7 @@ include_once 'templates/navbar.inc.php';
         <div class="col s12">
             <a href="#" class="breadcrumb"></a>
             <a href="#" class="breadcrumb"><?php echo $_SESSION['nombre']; ?></a>
-            <a href="profile.php" class="breadcrumb">Menú</a>
+            <a href="profile.php" class="breadcrumb">MenÃº</a>
         </div>
     </div>
 </nav>
@@ -42,7 +42,8 @@ include_once 'templates/navbar.inc.php';
         </div>
         <div class="col s12 m9 l9">
             <div class="row card">
-                <ul class="collection">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Rutas creadas</h4></li>
                     <?php
                     Conexion::openConexion();
                     MostrarRutas::mostrarRutasPerfil();

@@ -20,7 +20,7 @@
     <div class="footer-copyright">
         <div class="container">
             © 2016 Routes of infinity
-            <a class="grey-text text-lighten-4 right" href="#!">powered by rcancelo</a>
+            <a class="grey-text text-lighten-4 right" href="rcancelo.com">powered by rcancelo</a>
         </div>
     </div>
 </footer>

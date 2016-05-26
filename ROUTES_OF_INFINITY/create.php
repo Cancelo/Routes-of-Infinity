@@ -28,7 +28,7 @@ if (isset($_POST['crear'])) {
         $control = DAORuta::insertarRuta(Conexion::getConexion(), $ruta);
 
         if ($control) {
-            echo "<script>showToast('Ruta guardada, puedes verla en tu men�', 3500);</script>";
+            echo "<script>showToast('Ruta guardada, puedes verla en tu menú', 3500);</script>";
         }
     }
     Conexion:: closeConexion();
@@ -55,7 +55,7 @@ if (isset($_POST['crear'])) {
                 <div class="col s8 m12 l12">
                     <div class="input-field">
                         <input id="etiqueta" type="text">
-                        <label for="etiqueta">Nombre ubicación</label>				          
+                        <label for="etiqueta">Nombre ubicaciÃ³n</label>				          
                     </div>
                 </div>
                 <div class="col s4 m12 l12">
@@ -78,7 +78,7 @@ if (isset($_POST['crear'])) {
     <div class="modal-content">
         <div class="row sinMargen">
             <h5>Finalizar ruta</h5>
-            <p>Para finalizar introduce el nombre de la ruta, la ciudad en la que se encuentra y una descripción de la misma.</p>
+            <p>Para finalizar introduce el nombre de la ruta, la ciudad en la que se encuentra y una descripciÃ³n de la misma.</p>
         </div>
         <form method="post" action="create.php" name="datos">
             <div class="row sinMargen">
@@ -97,7 +97,7 @@ if (isset($_POST['crear'])) {
                 <div class="input-field col s9">
                     <i class="material-icons prefix">description</i>
                     <textarea id="descripcion" name="descripcionRuta" class="materialize-textarea"></textarea>
-                    <label for="descripcion">Descripción</label>
+                    <label for="descripcion">DescripciÃ³n</label>
                 </div>
                 <div lass="input-field col s3">
                     <p>

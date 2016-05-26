@@ -15,7 +15,7 @@ class ValidadorLogin {
         } else {
             $this->usuario = DAOUsuario::usuarioPorNombre($conexion, $nombre);
             if (is_null($this->usuario) || !password_verify($password, $this->usuario->getPassword())) {
-                $this->error = "<script>showToast('El usuario o la contraseña son incorrectos', 3500);</script>";
+                $this->error = "<script>showToast('El usuario o la contraseÃ±a son incorrectos', 3500);</script>";
             }
         }
     }

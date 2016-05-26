@@ -1,4 +1,5 @@
 <?php
+
 include_once 'app/config.inc.php';
 include_once 'app/Conexion.inc.php';
 include_once 'app/Usuario.inc.php';
@@ -21,10 +22,10 @@ if (isset($_POST['registro'])) {
         echo "<script>showToast('Algo ha salido mal, asegurate de rellenar todos los campos', 3500);</script>";
         #header("Location:index.php");
     } else if ($_POST['user'] == "" || $_POST['pass'] == "" || $_POST['repass'] == "") {
-        echo "<script>showToast('Asegurate de rellenar todos los campos', 3500);</script>";
+        echo "<script>showToast('Algo ha salido mal, asegurate de rellenar todos los campos', 3500);</script>";
         #header("Location:index.php");
     } else if ($_POST['pass'] != $_POST['repass']) {
-        echo "<script>showToast('Las contraseñas no coinciden', 3000);</script>";
+        echo "<script>showToast('Las contraseÃ±as no coinciden', 3000);</script>";
     } else if (DAOUsuario::nombreRepetido(Conexion::getConexion(), $_POST['user'])) {
         echo "<script>showToast('El nombre de usuario ya se encuentra en uso', 3500);</script>";
     } else {
@@ -32,7 +33,7 @@ if (isset($_POST['registro'])) {
         $control = DAOUsuario::insertarUsuario(Conexion::getConexion(), $usuario);
 
         if ($control) {
-            echo "<script>showToast('Registro completo, inicia sesión para acceder a tu perfil', 3500);</script>";
+            echo "<script>showToast('Registro completo, inicia sesiÃ³n para acceder a tu perfil', 3500);</script>";
             ;
         }
     }

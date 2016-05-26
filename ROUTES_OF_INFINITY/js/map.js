@@ -4,14 +4,14 @@ var markersArrayTmp = [];
 var markersArrayGuardado = [];
 var coordenadasEvento;
 
-// Configuración inicial del mapa
+// ConfiguraciÃ³n inicial del mapa
 var myOptions = {
     zoom: 2,
     center: {lat: 34, lng: 6},
     clickableIcons: false
 };
 
-// Función inicial
+// FunciÃ³n inicial
 function initAutocomplete() {
     // Inicia el mapa con las opciones myOptions
     map = new google.maps.Map(document.getElementById("map"), myOptions);
@@ -27,7 +27,7 @@ function initAutocomplete() {
     google.maps.event.addListener(map, "click", function (event) {
         // Pone el foco en el input etiqueta
         document.getElementById("etiqueta").focus();
-        // Llama a la función establecerMarker y le pasa como parámetro latitud y longitud del evento click
+        // Llama a la funciÃ³n establecerMarker y le pasa como parÃ¡metro latitud y longitud del evento click
         establecerMarker(event.latLng);
     });
 
@@ -41,7 +41,7 @@ function initAutocomplete() {
         searchBox.setBounds(map.getBounds());
     });
 
-    // Listener del evento que se produce cuando el usuario selecciona una predicción del searchbox
+    // Listener del evento que se produce cuando el usuario selecciona una predicciÃ³n del searchbox
     searchBox.addListener('places_changed', function () {
         // Recupera los lugares
         var places = searchBox.getPlaces();
@@ -52,7 +52,7 @@ function initAutocomplete() {
         // Llamada a borrarTmp
         borrarTmp();
 
-        // Para cada lugar recupera la información como localización, nombre...
+        // Para cada lugar recupera la informaciÃ³n como localizaciÃ³n, nombre...
         var bounds = new google.maps.LatLngBounds();
 
         places.forEach(function (place) {
@@ -74,7 +74,7 @@ function initAutocomplete() {
         map.fitBounds(bounds);
     });
 
-    // Utilizado para que el mapa aparezca centrado en su posición de origen independientemente de la resolución
+    // Utilizado para que el mapa aparezca centrado en su posiciÃ³n de origen independientemente de la resoluciÃ³n
     var altoMap = window.innerHeight;
     document.getElementById("map").style.height = "550px";
     document.getElementById("map").style.width = "auto";
@@ -89,7 +89,7 @@ function establecerMarker(location) {
     // Guarda las coordenadas del evento
     coordenadasEvento = location;
 
-    // Llama a la función borrarTmp
+    // Llama a la funciÃ³n borrarTmp
     borrarTmp();
 
     // Crea el marker con las coordenadas recibidas
@@ -100,12 +100,12 @@ function establecerMarker(location) {
         map: map
     });
 
-    // Añade el marker al array
+    // AÃ±ade el marker al array
     markersArrayTmp.push(marker);
 }
 
-// Elimina todos los marcadores del array mediante la eliminación de las referencias a ellos
-// Utilizado para que solo muestre una ubicación. Sólo abrá una ubicación el este array
+// Elimina todos los marcadores del array mediante la eliminaciÃ³n de las referencias a ellos
+// Utilizado para que solo muestre una ubicaciÃ³n. SÃ³lo abrÃ¡ una ubicaciÃ³n el este array
 function borrarTmp() {
     if (markersArrayTmp) {
         for (i in markersArrayTmp) {
@@ -123,13 +123,13 @@ function guardar() {
     }
     else if (document.getElementById("etiqueta").value.length == 0 || document.getElementById("etiqueta").value == null) {
         document.getElementById("etiqueta").focus();
-        Materialize.toast('Introduce un nombre para la ubicaci�n seleccionada', 1000);
+        Materialize.toast('Introduce un nombre para la ubicación seleccionada', 1000);
     }
     else {
         // Llama a la funcion mostrar
         mostrar(coordenadasEvento);
 
-        // Crea en el árbol DOM los div con las ubicaciones y la etiqueta introducida
+        // Crea en el Ã¡rbol DOM los div con las ubicaciones y la etiqueta introducida
         var div = document.createElement('div');
         div.innerHTML = "<div class='chip'>" + document.getElementById("etiqueta").value + "</div>";
         div.setAttribute('class', 'chip');
@@ -149,17 +149,17 @@ function guardar() {
 function mostrar(coordenadasEvento) {
     borrarTmp();
 
-    // Toma el valor del input del formulario. Esto será la etiqueta del marker
+    // Toma el valor del input del formulario. Esto serÃ¡ la etiqueta del marker
     var etiqueta = document.getElementById("etiqueta").value;
 
-    // Crea un marker con las coordenadas del evento. Éste será definitivo
+    // Crea un marker con las coordenadas del evento. Ã‰ste serÃ¡ definitivo
     var marker = new google.maps.Marker({
         position: coordenadasEvento,
         title: etiqueta,
         map: map
     });
 
-    // Añade el marker al array. Se mostraran todos los markers de este array en el mapa
+    // AÃ±ade el marker al array. Se mostraran todos los markers de este array en el mapa
     markersArrayGuardado.push(marker);
 
     // Muestra la etiqueta de cada marker en el mapa
@@ -192,7 +192,7 @@ function undo() {
 
 function terminar() {
     if (markersArrayGuardado.length <= 0) {
-        Materialize.toast('Introduce al menos una ubicación', 1000);
+        Materialize.toast('Introduce al menos una ubicaciÃ³n', 1000);
     }
     else {
         $('#modal1').openModal();
